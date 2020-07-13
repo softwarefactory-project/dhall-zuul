@@ -49,8 +49,21 @@ def create_wrap_function(obj):
     obj_type = "./Type.dhall"
     obj_unions = "../../typesUnion.dhall"
     obj_lower = obj.lower()
-    return ("../../imports/map.dhall " + obj_type + " " + obj_unions +
-         (" (\(%s : %s) -> (%s).%s { %s }) " % (obj_lower, obj_type, obj_unions, obj, obj_lower)))
+    return """
+let %s = { Type = ./Type.dhall }
+
+let typesUnion = ../../typesUnion.dhall
+
+let wrap
+    : List %s.Type -> List typesUnion
+    = ../../imports/map.dhall
+        %s.Type
+        typesUnion
+        (\(%s : %s.Type) -> typesUnion.%s { %s })
+
+in  wrap
+""" % (obj, obj, obj, obj.lower(), obj, obj, obj.lower())
+
 
 def inout(command):
     return lambda stdin: subprocess.Popen(["dhall", "--ascii"] + command, stdin=subprocess.PIPE, stdout=subprocess.PIPE).communicate(

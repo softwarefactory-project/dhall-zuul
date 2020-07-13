@@ -3,8 +3,9 @@ Build a list of job by adding a version number to the job name
 -}
 let Job = ./schema.dhall
 
-let replicate =
-      \(count : Natural) ->
+let replicate
+    : Natural -> Job.Type -> List Job.Type
+    = \(count : Natural) ->
       \(job : Job.Type) ->
         (../../imports/Prelude.dhall).List.generate
           count

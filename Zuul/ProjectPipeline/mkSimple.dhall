@@ -1,7 +1,7 @@
 let ProjectPipeline = ./schema.dhall
 
 let mkSimple
-    : List Text -> ProjectPipeline.Type
+    : forall (job-names : List Text) -> ProjectPipeline.Type
     = \(job-names : List Text) ->
         ProjectPipeline::{
         , jobs =
