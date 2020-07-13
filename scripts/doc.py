@@ -33,7 +33,7 @@ def render(name, doc):
         doc[dhallend:demostart + 1] + demo.communicate()[0].decode('utf-8').split('\n')[1:] + doc[demoend:]
 
 newdoc = doc_orig
-for demo in ["demo", "final"]:
+for demo in ["demo", "final", "generate-jobs"]:
     newdoc = render(demo, newdoc)
 
 exit(0) if newdoc == doc_orig else open('README.md', 'w').write('\n'.join(newdoc)); print('README.md updated!')

@@ -53,6 +53,44 @@ in    Zuul.Nodeset.wrap
 
 ```
 
+## Generate job
+
+```dhall
+-- ./examples/generate-jobs.dhall
+let Zuul = env:DHALL_ZUUL ? ../package.dhall
+
+let Job = Zuul.Job::{ name = Some "bench-job" }
+
+let Jobs = Zuul.Job.replicate 3 Job
+
+in    Zuul.Job.wrap ([ Job ] # Jobs)
+    # Zuul.Project.wrap
+        [ toMap
+            { check =
+                Zuul.Project.mkSimpleInline
+                  (Zuul.Job.map Text Zuul.Job.getName Jobs)
+            }
+        ]
+
+```
+
+```yaml
+- job:
+    name: bench-job
+- job:
+    name: bench-job-1
+- job:
+    name: bench-job-2
+- job:
+    name: bench-job-3
+- project:
+    check:
+      jobs:
+        - bench-job-1
+        - bench-job-2
+        - bench-job-3
+
+```
 
 ## Project map
 

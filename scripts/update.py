@@ -90,6 +90,8 @@ def run():
         if obj in conf_objects:
             write(Path("./Zuul/%s/wrapped.dhall" % obj), comment("A wrapped version of the Zuul.%s.Type" % obj) + "{ %s : ./Type.dhall }" % obj.lower())
             write(Path("./Zuul/%s/wrap.dhall" % obj), comment("A function to wrap a list of Zuul.%s.Type" % obj) + create_wrap_function(obj))
+        if Path("./Zuul/%s/default.dhall" % obj).exists() and Path("./Zuul/%s/Type.dhall" % obj).exists():
+            write(Path("./Zuul/%s/schema.dhall" % obj), comment("A completable Zuul.%s record" % obj) + "{ Type = ./Type.dhall, default = ./default.dhall }")
         write(Path("./Zuul/%s/package.dhall" % obj), comment("The Zuul.%s package" % obj) + create_object_package(obj))
     freeze(Path("typesUnion.dhall"), comment("The Zuul Union to group different schemas in a single list") + create_typesUnion(create_records(types)))
     freeze(Path("schemas.dhall"), comment("The Zuul schemas collection") + create_schemas(create_records(schemas)))
