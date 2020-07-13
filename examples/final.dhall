@@ -3,7 +3,9 @@ let Zuul = env:DHALL_ZUUL ? ../package.dhall
 let project =
       toMap
         { name = Zuul.Project.Name "dhall-zuul"
-        , check = Zuul.Project.mkSimpleInline [ "test", "publish" ]
+        , check =
+            Zuul.Project.Pipeline
+              (Zuul.ProjectPipeline.mkSimple [ "test", "publish" ])
         }
 
 in    Zuul.Job.wrap

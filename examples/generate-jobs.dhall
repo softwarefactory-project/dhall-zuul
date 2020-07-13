@@ -8,7 +8,7 @@ in    Zuul.Job.wrap ([ Job ] # Jobs)
     # Zuul.Project.wrap
         [ toMap
             { check =
-                Zuul.Project.mkSimpleInline
+                Zuul.Project.mkSimplePipeline
                   (Zuul.Job.map Text Zuul.Job.getName Jobs)
             }
         ]

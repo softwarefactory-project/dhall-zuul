@@ -1,5 +1,5 @@
 \(job-names : List Text) ->
-      ../ProjectPipeline/default.dhall
+      ./default.dhall
   //  { jobs =
           ../../imports/map.dhall
             Text

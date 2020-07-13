@@ -67,7 +67,7 @@ in    Zuul.Job.wrap ([ Job ] # Jobs)
     # Zuul.Project.wrap
         [ toMap
             { check =
-                Zuul.Project.mkSimpleInline
+                Zuul.Project.mkSimplePipeline
                   (Zuul.Job.map Text Zuul.Job.getName Jobs)
             }
         ]
@@ -104,7 +104,9 @@ let Zuul = env:DHALL_ZUUL ? ../package.dhall
 let project =
       toMap
         { name = Zuul.Project.Name "dhall-zuul"
-        , check = Zuul.Project.mkSimpleInline [ "test", "publish" ]
+        , check =
+            Zuul.Project.Pipeline
+              (Zuul.ProjectPipeline.mkSimple [ "test", "publish" ])
         }
 
 in    Zuul.Job.wrap
