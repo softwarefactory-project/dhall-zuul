@@ -39,8 +39,8 @@ import Dhall.Parser (exprFromText)
 import Dhall.Pretty (prettyExpr)
 
 -- | Convert a dhall type record to a value record using None value for Optional attributes
--- | >>> getDefaults "./types/test.dhall" "{ name : Text, become : Optional Bool, task : Optional ./Task.dhall }"
--- | "{ become = None Bool, task = None ../types/Task.dhall }"
+-- | >>> getDefaults "./Job/Type.dhall" "{ name : Text, become : Optional Bool, task : Optional ./Task.dhall }"
+-- | "{ become = None Bool, task = None ./Task.dhall }"
 getDefaults :: FilePath -> Text -> Text
 getDefaults fn content = decode
   where
@@ -75,7 +75,6 @@ main = shakeArgs shakeOptions {shakeFiles = "_build"} $ do
     filesContent <- mapM readFile' files
     let defaultable = map fst $ filter (\(fn, content) -> isRecord fn (pack content)) $ zip files filesContent
     need (Prelude.map (ren "default.dhall") defaultable)
---    need (Prelude.map (ren "wrapped.dhall") files)
 
   "//default.dhall" %> \dst -> do
     let src = ren "Type.dhall" dst
@@ -83,15 +82,7 @@ main = shakeArgs shakeOptions {shakeFiles = "_build"} $ do
     fileContent <- readFile' src
     writeFile' dst $ unpack (getDefaults src $ pack fileContent)
 
-  "//wrapped.dhall" %> \dst -> do
-    let nam = objName dst
-    putInfo $ dst <> ": created using " <> nam
-    -- TODO: use proper dhall expression
-    writeFile' dst ("{ " <> nam <> " : ./Type.dhall }\n")
   where
-    ren fn2 fn = joinPath (dropLast fns <> [fn2])
-      where fns = splitPath fn
-    dropLast = reverse . drop 1 . reverse
     sub dir fn = joinPath ([dir] <> Prelude.drop 1 (splitPath fn))
-    objName fn = dropLast $ takeWhile (/= '.') $ go $ head $ drop 1 $ reverse $ splitPath fn
-      where go (x:xs) = Data.Char.toLower x : xs
+    ren fn2 fn = joinPath (dropLast (splitPath fn) <> [fn2])
+    dropLast = reverse . drop 1 . reverse
