@@ -18,7 +18,7 @@ test:
 	@dhall-to-yaml --file ./examples/dhall-zuul-ci.dhall --output .zuul.yaml
 
 update-doc: update freeze
-	@dhall-docs --input . --package-name dhall-zuul --output-link result
+	@dhall-docs --input . --package-name dhall-zuul --output-link result --ascii
 
 publish: update-doc
 	@rsync --delete -r result/ docs/
