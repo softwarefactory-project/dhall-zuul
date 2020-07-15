@@ -61,7 +61,10 @@ let Zuul = env:DHALL_ZUUL ? ../package.dhall
 
 let Job = Zuul.Job::{ name = Some "bench-job" }
 
-let Jobs = Zuul.Job.replicate 3 Job
+let Jobs =
+      Zuul.Job.mapJob
+        (Zuul.Job.setParent "bench-job")
+        (Zuul.Job.replicate 3 Job)
 
 in    Zuul.Job.wrap ([ Job ] # Jobs)
     # Zuul.Project.wrap
@@ -79,10 +82,13 @@ in    Zuul.Job.wrap ([ Job ] # Jobs)
     name: bench-job
 - job:
     name: bench-job-1
+    parent: bench-job
 - job:
     name: bench-job-2
+    parent: bench-job
 - job:
     name: bench-job-3
+    parent: bench-job
 - project:
     check:
       jobs:
