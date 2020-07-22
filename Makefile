@@ -24,4 +24,4 @@ publish: update-doc
 	@rsync --delete -r result/ docs/
 	@find docs/ -type d -exec chmod 0755 {} +
 	@find docs/ -type f -exec chmod 0644 {} +
-	@rsync --exclude .zuul.yaml --exclude .gitreview --exclude _build --exclude .git --delete -avi ./ pagesuser@www.softwarefactory-project.io:/var/www/pages/www.softwarefactory-project.io/dhall-zuul/
+	@rsync --exclude .zuul.yaml --exclude .gitreview --exclude _build --exclude .git --delete -avi ./docs/ pagesuser@www.softwarefactory-project.io:/var/www/pages/docs.softwarefactory-project.io/dhall-zuul/

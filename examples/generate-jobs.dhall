@@ -1,4 +1,6 @@
-let Zuul = env:DHALL_ZUUL ? ../package.dhall
+let Zuul =
+        https://softwarefactory-project.io/cgit/software-factory/dhall-zuul/plain/package.dhall sha256:6ba224314853608af08a4c2886f7b97f8e7c80b1c48c2f9f5b32ea6446f3bb15
+      ? https://softwarefactory-project.io/cgit/software-factory/dhall-zuul/plain/package.dhall
 
 let Job = Zuul.Job::{ name = Some "bench-job" }
 

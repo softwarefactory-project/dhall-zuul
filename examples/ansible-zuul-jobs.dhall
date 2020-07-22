@@ -1,9 +1,8 @@
 {- https://github.com/ansible/ansible-zuul-jobs/blob/master/zuul.d/jobs.yaml
    contains a lot of duplication and updates are error prone.
-   Here is how using function to create job can result in a safer configuration:
 
-   Check out dhall-zuul documentation at:
-   https://www.softwarefactory-project.io/dhall-zuul/docs/
+   Here is how to use a couple of functions `mkVariant` and `mkNetwork` to
+   maintain the jobs definitions.
 -}
 let JSON =
       https://prelude.dhall-lang.org/JSON/package.dhall sha256:79dfc281a05bc7b78f927e0da0c274ee5709b1c55c9e5f59499cb28e9d6f3ec0
@@ -39,7 +38,7 @@ let {- A function to create simple zuul-jobs variant with `ansible-` prefix
         , nodeset = Some (Zuul.Nodeset.Name nodeset)
         }
 
-let N =
+let Nodeset =
       { centos8 = "centos-8-1vcpu"
       , centos7 = "centos-7-1vcpu"
       , fedora = "fedora-latest-1vcpu"
@@ -48,14 +47,14 @@ let N =
       }
 
 let toxs =
-      [ mkVariant N.centos8 "tox-docs"
-      , mkVariant N.centos8 "tox-linters"
-      , mkVariant N.centos8 "tox-docs"
-      , mkVariant N.centos7 "tox-py27"
-      , mkVariant N.xenial "tox-py35"
-      , mkVariant N.centos8 "tox-py36"
-      , mkVariant N.centos8 "tox-py37"
-      , mkVariant N.bionic "tox-py38"
+      [ mkVariant Nodeset.centos8 "tox-docs"
+      , mkVariant Nodeset.centos8 "tox-linters"
+      , mkVariant Nodeset.centos8 "tox-docs"
+      , mkVariant Nodeset.centos7 "tox-py27"
+      , mkVariant Nodeset.xenial "tox-py35"
+      , mkVariant Nodeset.centos8 "tox-py36"
+      , mkVariant Nodeset.centos8 "tox-py37"
+      , mkVariant Nodeset.bionic "tox-py38"
       ]
 
 let network-base =
