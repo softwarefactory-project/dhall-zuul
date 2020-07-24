@@ -16,6 +16,24 @@
       "revId": "81d47b848110de4e83dcd1c063895d25a5ad9177",
       "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1deedca0_940c2a45",
+        "filename": "Zuul/Job/Type.dhall",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 22
+      },
+      "writtenOn": "2020-07-24T20:54:28Z",
+      "side": 1,
+      "message": "Sure, I will have a look how we can add Zuul.Vars",
+      "parentUuid": "a393cc7e_2e520a6a",
+      "revId": "81d47b848110de4e83dcd1c063895d25a5ad9177",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0",
+      "unresolved": false
     }
   ]
 }
