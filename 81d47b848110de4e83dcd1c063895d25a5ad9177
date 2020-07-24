@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a393cc7e_2e520a6a",
+        "filename": "Zuul/Job/Type.dhall",
+        "patchSetId": 1
+      },
+      "lineNbr": 12,
+      "author": {
+        "id": 7
+      },
+      "writtenOn": "2020-07-24T20:49:16Z",
+      "side": 1,
+      "message": "I think we should use the same as host-vars. Perhaps we need a new Zuul.Vars package to facilitate vars object creation?",
+      "revId": "81d47b848110de4e83dcd1c063895d25a5ad9177",
+      "serverId": "6c1dc8ef-8b94-40e4-bd83-c2359d45ecc0",
+      "unresolved": false
+    }
+  ]
+}
