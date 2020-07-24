@@ -8,6 +8,7 @@
 , post-run : Optional (List Text)
 , attempts : Optional Natural
 , nodeset : Optional ../Nodeset/union.dhall
-, host-vars : Optional (../../imports/Prelude.dhall).JSON.Type
+, vars : Optional ../Vars/Type.dhall
+, host-vars : Optional ../Vars/Type.dhall
 , required-projects : Optional (List { name : Text })
 }

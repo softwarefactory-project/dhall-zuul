@@ -23,6 +23,7 @@ in    Zuul.Nodeset.wrap
         [ Zuul.Job::{
           , name = Some "test"
           , nodeset = Some (Zuul.Nodeset.Name nodeset-name)
+          , vars = Some (Zuul.Vars.mapBool (toMap { debug = True }))
           }
         , Zuul.Job::{
           , name = Some "test-with-inlined-nodeset"
@@ -43,6 +44,8 @@ in    Zuul.Nodeset.wrap
 - job:
     name: test
     nodeset: my-nodeset
+    vars:
+      debug: true
 - job:
     name: test-with-inlined-nodeset
     nodeset:
@@ -220,11 +223,13 @@ let {- A function to create a network job
       \(host-var-name : Text) ->
       \(nodeset-suffix : Text) ->
         let host-vars =
-              toMap
-                { ansible_connection = JSON.string "network_cli"
-                , ansible_network_os = JSON.string "asa"
-                , ansible_python_interpreter = JSON.string "python"
-                }
+              Zuul.Vars.mapText
+                ( toMap
+                    { ansible_connection = "network_cli"
+                    , ansible_network_os = "asa"
+                    , ansible_python_interpreter = "python"
+                    }
+                )
 
         in  Zuul.Job::{
             , name = Some "ansible-network-${name}-appliance"
@@ -233,11 +238,8 @@ let {- A function to create a network job
               [ "playbooks/ansible/network-${name}-appliance/pre.yaml" ]
             , run = Some "playbooks/ansible/network-${name}-appliance/run.yaml"
             , host-vars = Some
-                ( JSON.object
-                    [ { mapKey = host-var-name
-                      , mapValue = JSON.object host-vars
-                      }
-                    ]
+                ( Zuul.Vars.object
+                    [ { mapKey = host-var-name, mapValue = host-vars } ]
                 )
             , nodeset = Some
                 (Zuul.Nodeset.Name "${host-var-name}-${nodeset-suffix}")

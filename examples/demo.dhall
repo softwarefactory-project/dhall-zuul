@@ -12,6 +12,7 @@ in    Zuul.Nodeset.wrap
         [ Zuul.Job::{
           , name = Some "test"
           , nodeset = Some (Zuul.Nodeset.Name nodeset-name)
+          , vars = Some (Zuul.Vars.mapBool (toMap { debug = True }))
           }
         , Zuul.Job::{
           , name = Some "test-with-inlined-nodeset"

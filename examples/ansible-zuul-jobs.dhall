@@ -70,11 +70,13 @@ let {- A function to create a network job
       \(host-var-name : Text) ->
       \(nodeset-suffix : Text) ->
         let host-vars =
-              toMap
-                { ansible_connection = JSON.string "network_cli"
-                , ansible_network_os = JSON.string "asa"
-                , ansible_python_interpreter = JSON.string "python"
-                }
+              Zuul.Vars.mapText
+                ( toMap
+                    { ansible_connection = "network_cli"
+                    , ansible_network_os = "asa"
+                    , ansible_python_interpreter = "python"
+                    }
+                )
 
         in  Zuul.Job::{
             , name = Some "ansible-network-${name}-appliance"
@@ -83,11 +85,8 @@ let {- A function to create a network job
               [ "playbooks/ansible/network-${name}-appliance/pre.yaml" ]
             , run = Some "playbooks/ansible/network-${name}-appliance/run.yaml"
             , host-vars = Some
-                ( JSON.object
-                    [ { mapKey = host-var-name
-                      , mapValue = JSON.object host-vars
-                      }
-                    ]
+                ( Zuul.Vars.object
+                    [ { mapKey = host-var-name, mapValue = host-vars } ]
                 )
             , nodeset = Some
                 (Zuul.Nodeset.Name "${host-var-name}-${nodeset-suffix}")
