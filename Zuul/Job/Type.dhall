@@ -9,5 +9,6 @@
 , attempts : Optional Natural
 , nodeset : Optional ../Nodeset/union.dhall
 , host-vars : Optional (../../imports/Prelude.dhall).JSON.Type
+, vars : Optional (List { mapKey : Text, mapValue : Text })
 , required-projects : Optional (List { name : Text })
 }

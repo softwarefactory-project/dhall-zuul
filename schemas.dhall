@@ -1,10 +1,10 @@
 {- The Zuul schemas collection -}
 { Job =
-    ./Zuul/Job/package.dhall sha256:efb20da7e43991e43c47da59ba09f0f061f1d6f300db9c74a72ecee601e199c5
+    ./Zuul/Job/package.dhall sha256:8242dc1dfaff75f0635169aad184ad9d5c5b09e1913a56ef5ad875a45d305ca9
 , Nodeset =
-    ./Zuul/Nodeset/package.dhall sha256:ba6165740978115a8cd7db19cbb65e5ea8c0bc779b55610b5de542d4b2387b74
+    ./Zuul/Nodeset/package.dhall sha256:7f41d8546a51fdf70c2531222a0ff90bb0313a925267fc806d4c0d066005dca7
 , Project =
-    ./Zuul/Project/package.dhall sha256:ff09c5935ac96f074aac5cd73cd7d9a8ea0c69d32c9ad11a10d73779a47055a9
+    ./Zuul/Project/package.dhall sha256:654ffcabdcdd1737b223d2b13955db1eac102689bd7210ed990bd9d700043e75
 , ProjectPipeline =
-    ./Zuul/ProjectPipeline/package.dhall sha256:cd3bcf17411518352870559e43d43f5e239bad7f4bdc54b09954d1d474476b1d
+    ./Zuul/ProjectPipeline/package.dhall sha256:522fabd997a2fc3d2e4cb34302270e694f92f218bf2becf81d9c078250306e48
 }

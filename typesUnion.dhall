@@ -1,8 +1,8 @@
 {- The Zuul Union to group different schemas in a single list -}
 < Job :
-    ./Zuul/Job/wrapped.dhall sha256:8d2a74d77f933687d433dab4920ec052cf9ffdc66c866e20db6763482d986a57
+    ./Zuul/Job/wrapped.dhall sha256:71810f416f69df3ad8eb79016da2605e8d5e47a2074769a18d4886cdf60ce9cd
 | Nodeset :
     ./Zuul/Nodeset/wrapped.dhall sha256:c5e46c7e76ef5bb08dbc182a464a97279374f8114436550fe71d987b3e78cdde
 | Project :
-    ./Zuul/Project/wrapped.dhall sha256:066147aa6dfbcb6a2f05bc4d6d715a61e846c9303e5a8e17b5d5ab933a3272e8
+    ./Zuul/Project/wrapped.dhall sha256:7e0c809c8d689a82cf17005540b01eab4ea3b2bc4821eb879a9f44a8e499ab61
 >

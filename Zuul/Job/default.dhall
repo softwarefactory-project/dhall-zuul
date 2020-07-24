@@ -10,4 +10,5 @@
 , pre-run = None (List Text)
 , required-projects = None (List { name : Text })
 , run = None Text
+, vars = None (List { mapKey : Text, mapValue : Text })
 }

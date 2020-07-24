@@ -1,8 +1,15 @@
 let Zuul =
-        https://softwarefactory-project.io/cgit/software-factory/dhall-zuul/plain/package.dhall sha256:6ba224314853608af08a4c2886f7b97f8e7c80b1c48c2f9f5b32ea6446f3bb15
+        ./../package.dhall sha256:a36bcf3f464235b1039d297c26344022bf797a41a00222b324bda579744bc342
+      ? https://softwarefactory-project.io/cgit/software-factory/dhall-zuul/plain/package.dhall sha256:a36bcf3f464235b1039d297c26344022bf797a41a00222b324bda579744bc342
       ? https://softwarefactory-project.io/cgit/software-factory/dhall-zuul/plain/package.dhall
 
-let Job = Zuul.Job::{ name = Some "bench-job" }
+let Zuul = ./../package.dhall
+
+let Job =
+      Zuul.Job::{
+      , name = Some "bench-job"
+      , vars = Some [ { mapKey = "my_var", mapValue = "val" } ]
+      }
 
 let Jobs =
       Zuul.Job.mapJob
