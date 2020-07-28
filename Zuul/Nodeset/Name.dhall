@@ -1,4 +1,6 @@
-{- Construct a Nodeset.Union using a name -}
+{-|
+Construct a Nodeset.Union using a name
+-}
 let Nodeset = { Union = ./union.dhall }
 
 let Name

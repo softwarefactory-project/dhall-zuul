@@ -1,4 +1,6 @@
-{- A convenient function to transform a text bool into a JSON.object -}
+{-|
+A convenient function to transform a text bool into a JSON.object
+-}
 let Map = (../../imports/Prelude.dhall).Map
 
 let mapBool

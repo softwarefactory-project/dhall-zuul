@@ -1,4 +1,4 @@
-{-
+{-|
 Modify a list of job by applying a function to each element
 -}
 let Job =

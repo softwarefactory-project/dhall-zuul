@@ -1,4 +1,4 @@
-{-
+{-|
 Build a list of job by adding a version number to the job name
 -}
 let Job = ./schema.dhall

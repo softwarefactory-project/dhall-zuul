@@ -1,4 +1,5 @@
-{- Construct a Nodeset.Union using an inlined Nodeset.
+{-|
+Construct a Nodeset.Union using an inlined Nodeset.
 
    For example, to add a nodeset to a job configuration:
 

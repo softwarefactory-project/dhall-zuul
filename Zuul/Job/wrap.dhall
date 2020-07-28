@@ -1,4 +1,6 @@
-{- A function to wrap a list of Zuul.Job.Type -}
+{-|
+A function to wrap a list of Zuul.Job.Type
+-}
 
 let Job = { Type = ./Type.dhall }
 

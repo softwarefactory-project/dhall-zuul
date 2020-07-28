@@ -1,4 +1,4 @@
-{-
+{-|
 Return the name of a job, defaulting `None` to `""`
 -}
 let Job = ./schema.dhall

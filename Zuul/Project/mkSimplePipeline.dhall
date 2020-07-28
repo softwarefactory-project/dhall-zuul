@@ -1,4 +1,5 @@
-{- Consutrct a Project Pipeline (Map value) using a list of job names
+{-|
+Consutrct a Project Pipeline (Map value) using a list of job names
 -}
 let Project = { Union = ./union.dhall }
 

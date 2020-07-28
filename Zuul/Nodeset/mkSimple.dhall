@@ -1,4 +1,6 @@
-{- Create a nodeset with a single node named after the label -}
+{-|
+Create a nodeset with a single node named after the label
+-}
 let Nodeset = ./schema.dhall
 
 let mkSimple

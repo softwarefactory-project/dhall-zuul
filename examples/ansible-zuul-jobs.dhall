@@ -1,8 +1,9 @@
-{- https://github.com/ansible/ansible-zuul-jobs/blob/master/zuul.d/jobs.yaml
-   contains a lot of duplication and updates are error prone.
+{-|
+[ansible-zuul-jobs](https://github.com/ansible/ansible-zuul-jobs/blob/master/zuul.d/jobs.yaml)
+contains a lot of duplication and updates are error prone.
 
-   Here is how to use a couple of functions `mkVariant` and `mkNetwork` to
-   maintain the jobs definitions.
+Here is how to use a couple of functions `mkVariant` and `mkNetwork` to
+maintain the jobs definitions.
 -}
 let JSON =
       https://prelude.dhall-lang.org/JSON/package.dhall sha256:79dfc281a05bc7b78f927e0da0c274ee5709b1c55c9e5f59499cb28e9d6f3ec0
@@ -28,8 +29,8 @@ let base =
         }
       ]
 
-let {- A function to create simple zuul-jobs variant with `ansible-` prefix
-    -} mkVariant =
+let --| A function to create simple zuul-jobs variant with `ansible-` prefix
+    mkVariant =
       \(nodeset : Text) ->
       \(parent-name : Text) ->
         Zuul.Job::{
@@ -64,8 +65,8 @@ let network-base =
       , post-run = Some [ "playbooks/ansible-network-appliance-base/post.yaml" ]
       }
 
-let {- A function to create a network job
-    -} mkNetwork =
+let --| A function to create a network job
+    mkNetwork =
       \(name : Text) ->
       \(host-var-name : Text) ->
       \(nodeset-suffix : Text) ->

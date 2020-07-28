@@ -1,4 +1,5 @@
-{- Construct a Project Map value using a name
+{-|
+Construct a Project Map value using a name
 -}
 let Project = { Union = ./union.dhall }
 

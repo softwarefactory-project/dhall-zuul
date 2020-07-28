@@ -1,4 +1,6 @@
-{- The two ways to reference a Job -}
+{-|
+The two ways to reference a Job
+-}
 let Job = ./schema.dhall
 
 let Map = (../../imports/Prelude.dhall).Map.Type
