@@ -1,4 +1,9 @@
-{- The Zuul schemas collection -}
+{-|
+# The Zuul schemas collection
+
+See the `examples` for usages.
+-}
+
 { Job =
     ./Zuul/Job/package.dhall sha256:217826944f505d43844ef8673338a4056dcc29767943f44bc9998833d86730d1
 , Nodeset =

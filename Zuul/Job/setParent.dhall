@@ -1,4 +1,4 @@
-{-
+{-|
 Set the parent of job
 -}
 let Job = ./schema.dhall

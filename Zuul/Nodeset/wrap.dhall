@@ -1,4 +1,6 @@
-{- A function to wrap a list of Zuul.Nodeset.Type -}
+{-|
+A function to wrap a list of Zuul.Nodeset.Type
+-}
 
 let Nodeset = { Type = ./Type.dhall }
 

@@ -1,2 +1,4 @@
-{- A completable Zuul.ProjectPipeline record -}
+{-|
+A completable Zuul.ProjectPipeline record
+-}
 { Type = ./Type.dhall, default = ./default.dhall }

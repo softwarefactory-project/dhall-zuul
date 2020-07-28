@@ -1,4 +1,6 @@
-{- A function to wrap a list of Zuul.Project.Type -}
+{-|
+A function to wrap a list of Zuul.Project.Type
+-}
 
 let Project = { Type = ./Type.dhall }
 

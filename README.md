@@ -151,7 +151,8 @@ Function can be used to generate complex job:
 
 ```dhall
 -- ./examples/ansible-zuul-jobs.dhall
-{- https://github.com/ansible/ansible-zuul-jobs/blob/master/zuul.d/jobs.yaml
+{-|
+https://github.com/ansible/ansible-zuul-jobs/blob/master/zuul.d/jobs.yaml
    contains a lot of duplication and updates are error prone.
 
    Here is how to use a couple of functions `mkVariant` and `mkNetwork` to
@@ -181,7 +182,9 @@ let base =
         }
       ]
 
-let {- A function to create simple zuul-jobs variant with `ansible-` prefix
+let {-|
+    A function to create simple zuul-jobs variant with `ansible-` prefix
+
     -} mkVariant =
       \(nodeset : Text) ->
       \(parent-name : Text) ->
@@ -217,7 +220,9 @@ let network-base =
       , post-run = Some [ "playbooks/ansible-network-appliance-base/post.yaml" ]
       }
 
-let {- A function to create a network job
+let {-|
+    A function to create a network job
+
     -} mkNetwork =
       \(name : Text) ->
       \(host-var-name : Text) ->

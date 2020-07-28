@@ -1,4 +1,5 @@
-{- Construct a Project Map value using a pipeline
+{-|
+Construct a Project Map value using a pipeline
 -}
 let Project = { Union = ./union.dhall }
 

@@ -1,4 +1,6 @@
-{- The Zuul Union to group different schemas in a single list -}
+{-|
+The Zuul Union to group different schemas in a single list
+-}
 < Job :
     ./Zuul/Job/wrapped.dhall sha256:4eef0f01a9c68a8e988851cb58681c550efa5d96bef9fe5c8c343fd76d84ca62
 | Nodeset :

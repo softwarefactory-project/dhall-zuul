@@ -1,4 +1,4 @@
-{- The Zuul.Nodeset package -}
+--| The Zuul.Nodeset package
 { Inline = ./Inline.dhall
 , Name = ./Name.dhall
 , NodeType = ./NodeType.dhall

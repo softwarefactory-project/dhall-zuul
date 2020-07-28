@@ -1,4 +1,6 @@
-{- A convenient function to transform a text map into a JSON.object -}
+{-|
+A convenient function to transform a text map into a JSON.object
+-}
 let Map = (../../imports/Prelude.dhall).Map
 
 let mapText
