@@ -29,8 +29,9 @@ def render(name, doc):
 #    print("Demo", demostart, demoend)
     demopath = "examples/%s.dhall" % name
     demo = subprocess.Popen(['dhall-to-yaml', '--file', demopath], stdout=subprocess.PIPE, stdin=subprocess.PIPE)
+    demoOutput = ["# dhall-to-yaml --file %s" % demopath] + demo.communicate()[0].decode('utf-8').split('\n')[1:]
     return doc[:dhallstart + 1] + open(demopath).read().split('\n') + \
-        doc[dhallend:demostart + 1] + demo.communicate()[0].decode('utf-8').split('\n')[1:] + doc[demoend:]
+        doc[dhallend:demostart + 1] + demoOutput + doc[demoend:]
 
 newdoc = doc_orig
 for demo in ["demo", "final", "generate-jobs", "ansible-zuul-jobs"]:
