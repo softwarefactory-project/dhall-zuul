@@ -1,0 +1,8 @@
+Code-Review+2: Daniel Pawlik <dpawlik@redhat.com>
+Workflow+1: Nicolas HICHER <nhicher@redhat.com>
+Verified+2: Zuul CI <zuul@softwarefactory-project.io>
+Submitted-by: Zuul CI <zuul@softwarefactory-project.io>
+Submitted-at: Thu, 30 Jul 2020 19:26:46 +0000
+Reviewed-on: https://softwarefactory-project.io/r/19087
+Project: software-factory/dhall-zuul
+Branch: refs/heads/master
