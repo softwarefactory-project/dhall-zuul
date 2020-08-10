@@ -10,5 +10,5 @@
 , report-build-page = None Bool
 , web-root = None Text
 , admin-rules = None (List Text)
-, source = [] : List { mapKey : Text, mapValue : Text }
+, source = [] : List { mapKey : Text, mapValue : ../Connection/Type.dhall }
 }
