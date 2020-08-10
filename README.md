@@ -437,5 +437,27 @@ in  Zuul.Job.wrap (base # toxs # networks)
 
 ```
 
+## Tenant config
+
+```dhall
+-- ./examples/tenant-config.dhall
+let Zuul = ../package.dhall
+
+let tenant = Zuul.Tenant::{ name = "ansible", max-nodes-per-job = Some 42 }
+
+in  Zuul.Tenant.wrap [ tenant ]
+
+```
+
+```yaml
+# dhall-to-yaml --file ./examples/tenant-config.dhall
+
+- tenant:
+    max-nodes-per-job: 42
+    name: ansible
+    source: {}
+
+```
+
 [dhall-lang]: https://dhall-lang.org
 [zuul]: https://zuul-ci.org
