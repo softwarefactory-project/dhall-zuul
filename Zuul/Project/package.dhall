@@ -1,4 +1,3 @@
---| The Zuul.Project package
 { Name = ./Name.dhall
 , Pipeline = ./Pipeline.dhall
 , Type = ./Type.dhall

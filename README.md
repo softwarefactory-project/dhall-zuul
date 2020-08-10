@@ -36,6 +36,7 @@ in    Zuul.Nodeset.wrap
 
 ```yaml
 # dhall-to-yaml --file examples/demo.dhall
+
 - nodeset:
     name: my-nodeset
     nodes:
@@ -85,6 +86,7 @@ in    Zuul.Job.wrap ([ Job ] # Jobs)
 
 ```yaml
 # dhall-to-yaml --file examples/generate-jobs.dhall
+
 - job:
     name: bench-job
 - job:
@@ -132,6 +134,7 @@ in    Zuul.Job.wrap
 
 ```yaml
 # dhall-to-yaml --file examples/final.dhall
+
 - job:
     name: test
 - job:
@@ -266,6 +269,7 @@ in  Zuul.Job.wrap (base # toxs # networks)
 
 ```yaml
 # dhall-to-yaml --file examples/ansible-zuul-jobs.dhall
+
 - job:
     abstract: true
     ansible-version: '2.9'
@@ -432,3 +436,6 @@ in  Zuul.Job.wrap (base # toxs # networks)
     run: playbooks/ansible/network-openvswitch-appliance/run.yaml
 
 ```
+
+[dhall-lang]: https://dhall-lang.org
+[zuul]: https://zuul-ci.org

@@ -2,15 +2,9 @@
 - project:
     check:
       jobs:
-        - dhall-diff:
-            nodeset:
-              nodes:
-                - label: pod-dhall-1-33
-                  name: pod-dhall-1-33
+        - shake-factory-test
+        - shake-factory-docs
     gate:
       jobs:
-        - dhall-diff:
-            nodeset:
-              nodes:
-                - label: pod-dhall-1-33
-                  name: pod-dhall-1-33
+        - shake-factory-test
+        - shake-factory-docs
