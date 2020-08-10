@@ -1,4 +1,3 @@
---| The Zuul.Job package
 { Inline = ./Inline.dhall
 , Name = ./Name.dhall
 , Type = ./Type.dhall

@@ -1,4 +1,3 @@
---| The Zuul.Vars package
 { Type = ./Type.dhall
 , array = ./array.dhall
 , bool = ./bool.dhall
