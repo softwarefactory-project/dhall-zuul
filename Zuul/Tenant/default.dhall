@@ -1,2 +1,3 @@
-    { source = [] : List { mapKey : Text, mapValue : Text } }
+    { source = [] : List { mapKey : Text, mapValue : ../Connection/Type.dhall }
+    }
 //  ../TenantOptions/default.dhall
