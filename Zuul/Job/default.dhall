@@ -9,6 +9,7 @@
 , post-run = None (List Text)
 , pre-run = None (List Text)
 , required-projects = None (List { name : Text })
+, roles = None (List { zuul : Text })
 , run = None Text
 , vars = None ../Vars/Type.dhall
 }
