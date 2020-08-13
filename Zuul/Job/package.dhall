@@ -1,6 +1,7 @@
 { Inline = ./Inline.dhall
 , Name = ./Name.dhall
 , Type = ./Type.dhall
+, WithOptions = ./WithOptions.dhall
 , default = ./default.dhall
 , getName = ./getName.dhall
 , map = ./map.dhall
