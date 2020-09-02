@@ -4,6 +4,7 @@
 , WithOptions = ./WithOptions.dhall
 , default = ./default.dhall
 , getName = ./getName.dhall
+, getUnionName = ./getUnionName.dhall
 , map = ./map.dhall
 , mapJob = ./mapJob.dhall
 , replicate = ./replicate.dhall
