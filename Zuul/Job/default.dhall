@@ -1,6 +1,7 @@
 { abstract = None Bool
 , ansible-version = None Text
 , attempts = None Natural
+, dependencies = None (List ./Dependency/union.dhall)
 , description = None Text
 , host-vars = None ../Vars/Type.dhall
 , name = None Text

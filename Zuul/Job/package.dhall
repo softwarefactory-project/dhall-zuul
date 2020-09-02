@@ -12,4 +12,5 @@
 , union = ./union.dhall
 , wrap = ./wrap.dhall
 , wrapped = ./wrapped.dhall
+, Dependency = ./Dependency/package.dhall
 }

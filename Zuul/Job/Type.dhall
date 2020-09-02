@@ -7,6 +7,7 @@
 , run : Optional Text
 , post-run : Optional (List Text)
 , attempts : Optional Natural
+, dependencies : Optional (List ./Dependency/union.dhall)
 , nodeset : Optional ../Nodeset/union.dhall
 , vars : Optional ../Vars/Type.dhall
 , host-vars : Optional ../Vars/Type.dhall
