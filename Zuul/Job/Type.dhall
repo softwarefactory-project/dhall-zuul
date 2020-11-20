@@ -11,6 +11,7 @@
 , nodeset : Optional ../Nodeset/union.dhall
 , vars : Optional ../Vars/Type.dhall
 , host-vars : Optional ../Vars/Type.dhall
+, secrets : Optional (List ./Secret/Type.dhall)
 , roles : Optional (List { zuul : Text })
 , required-projects : Optional (List { name : Text })
 }

@@ -14,4 +14,5 @@
 , wrap = ./wrap.dhall
 , wrapped = ./wrapped.dhall
 , Dependency = ./Dependency/package.dhall
+, Secret = ./Secret/package.dhall
 }

@@ -12,5 +12,6 @@
 , required-projects = None (List { name : Text })
 , roles = None (List { zuul : Text })
 , run = None Text
+, secrets = None (List ./Secret/Type.dhall)
 , vars = None ../Vars/Type.dhall
 }

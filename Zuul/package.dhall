@@ -5,6 +5,7 @@
 , Nodeset = ./Nodeset/package.dhall
 , Project = ./Project/package.dhall
 , ProjectPipeline = ./ProjectPipeline/package.dhall
+, Secret = ./Secret/package.dhall
 , SourceProject = ./SourceProject/package.dhall
 , Tenant = ./Tenant/package.dhall
 , TenantOptions = ./TenantOptions/package.dhall
