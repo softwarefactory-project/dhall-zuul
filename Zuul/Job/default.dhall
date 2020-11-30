@@ -1,11 +1,13 @@
 { abstract = None Bool
 , ansible-version = None Text
 , attempts = None Natural
+, branches = None (List Text)
 , dependencies = None (List ./Dependency/union.dhall)
 , description = None Text
 , host-vars = None ../Vars/Type.dhall
 , name = None Text
 , nodeset = None ../Nodeset/union.dhall
+, override-checkout = None Text
 , parent = None Text
 , post-run = None (List Text)
 , pre-run = None (List Text)
