@@ -504,5 +504,18 @@ in  Zuul.Tenant.wrap [ tenant ]
 
 ```
 
+## Changes
+
+Frozen package are available in the tag commit.
+
+### 0.3.0
+
+- Add Job.branches and override-checkout
+- Add Secret and Job.secrets
+
+### 0.2.0
+
+- Initial release
+
 [dhall-lang]: https://dhall-lang.org
 [zuul]: https://zuul-ci.org
