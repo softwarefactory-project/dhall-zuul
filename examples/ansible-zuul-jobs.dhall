@@ -8,7 +8,7 @@ maintain the jobs definitions.
 let JSON =
       https://prelude.dhall-lang.org/JSON/package.dhall sha256:79dfc281a05bc7b78f927e0da0c274ee5709b1c55c9e5f59499cb28e9d6f3ec0
 
-let Zuul = env:DHALL_ZUUL ? ../package.dhall
+let Zuul = ../package.dhall
 
 let base =
       [ Zuul.Job::{

@@ -9,7 +9,7 @@ Using the `wrap` function, different objects can be combined in a single list:
 
 ```dhall
 -- ./examples/demo.dhall
-let Zuul = env:DHALL_ZUUL ? ../package.dhall
+let Zuul = ../package.dhall
 
 let nodeset-name = "my-nodeset"
 
@@ -62,9 +62,7 @@ in    Zuul.Nodeset.wrap
 
 ```dhall
 -- ./examples/generate-jobs.dhall
-let Zuul =
-        https://softwarefactory-project.io/cgit/software-factory/dhall-zuul/plain/package.dhall sha256:6ba224314853608af08a4c2886f7b97f8e7c80b1c48c2f9f5b32ea6446f3bb15
-      ? https://softwarefactory-project.io/cgit/software-factory/dhall-zuul/plain/package.dhall
+let Zuul = ../package.dhall
 
 let Job = Zuul.Job::{ name = Some "bench-job" }
 
@@ -114,7 +112,7 @@ defined as a Map that can be used like so:
 
 ```dhall
 -- ./examples/final.dhall
-let Zuul = env:DHALL_ZUUL ? ../package.dhall
+let Zuul = ../package.dhall
 
 let project =
       toMap
@@ -169,7 +167,7 @@ maintain the jobs definitions.
 let JSON =
       https://prelude.dhall-lang.org/JSON/package.dhall sha256:79dfc281a05bc7b78f927e0da0c274ee5709b1c55c9e5f59499cb28e9d6f3ec0
 
-let Zuul = env:DHALL_ZUUL ? ../package.dhall
+let Zuul = ../package.dhall
 
 let base =
       [ Zuul.Job::{

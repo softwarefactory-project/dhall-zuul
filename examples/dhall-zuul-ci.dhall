@@ -1,4 +1,4 @@
-let Zuul = env:DHALL_ZUUL ? ../package.dhall
+let Zuul = ../package.dhall
 
 let ci-pipeline =
       Zuul.Project.Pipeline
