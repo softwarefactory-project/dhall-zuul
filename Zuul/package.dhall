@@ -3,6 +3,7 @@
 , Connection = ./Connection/package.dhall
 , Job = ./Job/package.dhall
 , Nodeset = ./Nodeset/package.dhall
+, Pipeline = ./Pipeline/package.dhall
 , Project = ./Project/package.dhall
 , ProjectPipeline = ./ProjectPipeline/package.dhall
 , Secret = ./Secret/package.dhall

@@ -58,6 +58,85 @@ in    Zuul.Nodeset.wrap
 
 ```
 
+## Pipeline definition
+
+```dhall
+-- ./examples/pipeline.dhall
+let Zuul = ../package.dhall
+
+let mqttReporter =
+      \(stage : Text) ->
+        Zuul.Pipeline.Reporter.mqtt
+          { topic = "zuul/{pipeline}/${stage}/{project}/{branch}" }
+
+let periodic =
+      Zuul.Pipeline::{
+      , name = "periodic"
+      , manager = Zuul.Pipeline.independent
+      , precedence = Some Zuul.Pipeline.low
+      , post-review = Some True
+      , description = Some "Jobs in this queue are triggered daily"
+      , trigger = Some
+          ( toMap
+              { timer = Zuul.Pipeline.Trigger.timer [ { time = "0 0 * * *" } ] }
+          )
+      , start = Some (toMap { mqtt = mqttReporter "start" })
+      , success = Some
+          ( toMap
+              { sqlreporter = Zuul.Pipeline.Reporter.sql
+              , mqtt = mqttReporter "result"
+              }
+          )
+      , failure = Some
+          ( toMap
+              { sqlreporter = Zuul.Pipeline.Reporter.sql
+              , mqtt = mqttReporter "result"
+              , smtp =
+                  Zuul.Pipeline.Reporter.smtp
+                    { from = "zuul@example.com"
+                    , to = "root@localhost"
+                    , subject =
+                        "[Zuul] Job failed in periodic pipeline: {change.project}"
+                    }
+              }
+          )
+      }
+
+in  Zuul.Pipeline.wrap [ periodic ]
+
+```
+
+```yaml
+# dhall-to-yaml --file examples/pipeline.dhall
+
+- pipeline:
+    description: Jobs in this queue are triggered daily
+    failure:
+      mqtt:
+        topic: "zuul/{pipeline}/result/{project}/{branch}"
+      smtp:
+        from: "zuul@example.com"
+        subject: "[Zuul] Job failed in periodic pipeline: {change.project}"
+        to: "root@localhost"
+      sqlreporter: {}
+    manager: independent
+    name: periodic
+    post-review: true
+    precedence: low
+    start:
+      mqtt:
+        topic: "zuul/{pipeline}/start/{project}/{branch}"
+    success:
+      mqtt:
+        topic: "zuul/{pipeline}/result/{project}/{branch}"
+      sqlreporter: {}
+    trigger:
+      timer:
+        - time: "0 0 * * *"
+
+```
+
+
 ## Generate job
 
 ```dhall
@@ -505,6 +584,10 @@ in  Zuul.Tenant.wrap [ tenant ]
 ## Changes
 
 Frozen package are available in the tag commit.
+
+### 0.4.0
+
+- Add Pipeline
 
 ### 0.3.0
 
