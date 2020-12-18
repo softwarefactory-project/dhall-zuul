@@ -15,4 +15,5 @@
 , wrapped = ./wrapped.dhall
 , Dependency = ./Dependency/package.dhall
 , Secret = ./Secret/package.dhall
+, Semaphore = ./Semaphore/package.dhall
 }

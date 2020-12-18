@@ -631,6 +631,7 @@ Frozen package are available in the tag commit.
 ### 0.4.0
 
 - Add Pipeline
+- Add Semaphore
 
 ### 0.3.0
 

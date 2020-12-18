@@ -49,7 +49,7 @@ createWrap fp = writeFile' fp content
 createWant :: FilePath -> [FilePath]
 createWant fn = map (\obj -> "Zuul/" <> obj <> "/" <> fn) confObjects
   where
-    confObjects = ["Job", "Nodeset", "Project", "Tenant", "Secret", "Pipeline"]
+    confObjects = ["Job", "Nodeset", "Project", "Tenant", "Secret", "Semaphore", "Pipeline"]
 
 main = shakeMain $ do
   want $ ["README.md", "package.dhall", ".zuul.yaml"] <> createWant "wrapped.dhall" <> createWant "wrap.dhall"
