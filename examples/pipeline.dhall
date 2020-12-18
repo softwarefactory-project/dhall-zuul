@@ -46,4 +46,8 @@ let --| Using periodic helper function:
         smtp-config
         "sqlreporter"
 
-in  Zuul.Pipeline.wrap [ periodic, hourly-periodic ]
+let post
+    : Zuul.Pipeline.Type
+    = Zuul.Pipeline.post "gerrit" "sqlreporter"
+
+in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, post ]

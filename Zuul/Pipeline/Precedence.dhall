@@ -1,1 +1,1 @@
-< normal | low >
+< normal | low | high >

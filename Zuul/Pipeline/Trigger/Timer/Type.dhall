@@ -1,1 +1,1 @@
-List { time : Text }
+{ time : Text }

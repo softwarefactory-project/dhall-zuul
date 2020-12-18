@@ -110,7 +110,11 @@ let --| Using periodic helper function:
         smtp-config
         "sqlreporter"
 
-in  Zuul.Pipeline.wrap [ periodic, hourly-periodic ]
+let post
+    : Zuul.Pipeline.Type
+    = Zuul.Pipeline.post "gerrit" "sqlreporter"
+
+in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, post ]
 
 ```
 
@@ -158,6 +162,20 @@ in  Zuul.Pipeline.wrap [ periodic, hourly-periodic ]
     trigger:
       timer:
         - time: "0 * * * *"
+- pipeline:
+    description: This pipeline runs jobs that operate after each change is merged.
+    failure:
+      sqlreporter: {}
+    manager: supercedent
+    name: post
+    post-review: true
+    precedence: high
+    success:
+      sqlreporter: {}
+    trigger:
+      gerrit:
+        - event: ref-updated
+          ref: "^refs/heads/.*$"
 
 ```
 
