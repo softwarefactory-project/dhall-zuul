@@ -8,6 +8,7 @@
 , independent = ./independent.dhall
 , low = ./low.dhall
 , normal = ./normal.dhall
+, periodic = ./periodic.dhall
 , serial = ./serial.dhall
 , supercedent = ./supercedent.dhall
 , wrap = ./wrap.dhall

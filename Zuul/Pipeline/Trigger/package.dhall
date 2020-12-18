@@ -1,5 +1,5 @@
-{ Timer = ./Timer.dhall
-, Type = ./Type.dhall
+{ Type = ./Type.dhall
 , map = ./map.dhall
 , timer = ./timer.dhall
+, Timer = ./Timer/package.dhall
 }

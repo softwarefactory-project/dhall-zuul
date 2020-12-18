@@ -69,6 +69,12 @@ let mqttReporter =
         Zuul.Pipeline.Reporter.mqtt
           { topic = "zuul/{pipeline}/${stage}/{project}/{branch}" }
 
+let smtp-config =
+      { from = "zuul@example.com"
+      , to = "root@localhost"
+      , subject = "[Zuul] Job failed in periodic pipeline: {change.project}"
+      }
+
 let periodic =
       Zuul.Pipeline::{
       , name = "periodic"
@@ -91,18 +97,20 @@ let periodic =
           ( toMap
               { sqlreporter = Zuul.Pipeline.Reporter.sql
               , mqtt = mqttReporter "result"
-              , smtp =
-                  Zuul.Pipeline.Reporter.smtp
-                    { from = "zuul@example.com"
-                    , to = "root@localhost"
-                    , subject =
-                        "[Zuul] Job failed in periodic pipeline: {change.project}"
-                    }
+              , smtp = Zuul.Pipeline.Reporter.smtp smtp-config
               }
           )
       }
 
-in  Zuul.Pipeline.wrap [ periodic ]
+let --| Using periodic helper function:
+    hourly-periodic
+    : Zuul.Pipeline.Type
+    = Zuul.Pipeline.periodic
+        Zuul.Pipeline.Trigger.Timer.Frequency.hourly
+        smtp-config
+        "sqlreporter"
+
+in  Zuul.Pipeline.wrap [ periodic, hourly-periodic ]
 
 ```
 
@@ -133,6 +141,23 @@ in  Zuul.Pipeline.wrap [ periodic ]
     trigger:
       timer:
         - time: "0 0 * * *"
+- pipeline:
+    description: Jobs in this queue are triggered hourly
+    failure:
+      smtp:
+        from: "zuul@example.com"
+        subject: "[Zuul] Job failed in periodic pipeline: {change.project}"
+        to: "root@localhost"
+      sqlreporter: {}
+    manager: independent
+    name: periodic-hourly
+    post-review: true
+    precedence: low
+    success:
+      sqlreporter: {}
+    trigger:
+      timer:
+        - time: "0 * * * *"
 
 ```
 

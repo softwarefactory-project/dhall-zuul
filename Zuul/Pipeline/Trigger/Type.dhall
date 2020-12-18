@@ -1,1 +1,1 @@
-< Timer : ./Timer.dhall >
+< Timer : ./Timer/Type.dhall >

@@ -5,6 +5,12 @@ let mqttReporter =
         Zuul.Pipeline.Reporter.mqtt
           { topic = "zuul/{pipeline}/${stage}/{project}/{branch}" }
 
+let smtp-config =
+      { from = "zuul@example.com"
+      , to = "root@localhost"
+      , subject = "[Zuul] Job failed in periodic pipeline: {change.project}"
+      }
+
 let periodic =
       Zuul.Pipeline::{
       , name = "periodic"
@@ -27,15 +33,17 @@ let periodic =
           ( toMap
               { sqlreporter = Zuul.Pipeline.Reporter.sql
               , mqtt = mqttReporter "result"
-              , smtp =
-                  Zuul.Pipeline.Reporter.smtp
-                    { from = "zuul@example.com"
-                    , to = "root@localhost"
-                    , subject =
-                        "[Zuul] Job failed in periodic pipeline: {change.project}"
-                    }
+              , smtp = Zuul.Pipeline.Reporter.smtp smtp-config
               }
           )
       }
 
-in  Zuul.Pipeline.wrap [ periodic ]
+let --| Using periodic helper function:
+    hourly-periodic
+    : Zuul.Pipeline.Type
+    = Zuul.Pipeline.periodic
+        Zuul.Pipeline.Trigger.Timer.Frequency.hourly
+        smtp-config
+        "sqlreporter"
+
+in  Zuul.Pipeline.wrap [ periodic, hourly-periodic ]
