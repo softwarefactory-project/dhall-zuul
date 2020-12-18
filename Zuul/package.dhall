@@ -7,6 +7,7 @@
 , Project = ./Project/package.dhall
 , ProjectPipeline = ./ProjectPipeline/package.dhall
 , Secret = ./Secret/package.dhall
+, Semaphore = ./Semaphore/package.dhall
 , SourceProject = ./SourceProject/package.dhall
 , Tenant = ./Tenant/package.dhall
 , TenantOptions = ./TenantOptions/package.dhall

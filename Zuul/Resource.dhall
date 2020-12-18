@@ -3,5 +3,6 @@
 | Pipeline : ./Pipeline/wrapped.dhall
 | Project : ./Project/wrapped.dhall
 | Secret : ./Secret/wrapped.dhall
+| Semaphore : ./Semaphore/wrapped.dhall
 | Tenant : ./Tenant/wrapped.dhall
 >
