@@ -4,6 +4,7 @@
 , branches = None (List Text)
 , dependencies = None (List ./Dependency/union.dhall)
 , description = None Text
+, final = None Bool
 , host-vars = None ../Vars/Type.dhall
 , name = None Text
 , nodeset = None ../Nodeset/union.dhall
@@ -11,6 +12,8 @@
 , parent = None Text
 , post-run = None (List Text)
 , pre-run = None (List Text)
+, protected = None Bool
+, provides = None (List Text)
 , required-projects = None (List { name : Text })
 , roles = None (List { zuul : Text })
 , run = None Text

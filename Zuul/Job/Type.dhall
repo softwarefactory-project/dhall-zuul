@@ -1,12 +1,15 @@
 { name : Optional Text
 , parent : Optional Text
 , abstract : Optional Bool
+, protected : Optional Bool
+, final : Optional Bool
 , ansible-version : Optional Text
 , branches : Optional (List Text)
 , description : Optional Text
 , pre-run : Optional (List Text)
 , run : Optional Text
 , post-run : Optional (List Text)
+, provides : Optional (List Text)
 , attempts : Optional Natural
 , dependencies : Optional (List ./Dependency/union.dhall)
 , nodeset : Optional ../Nodeset/union.dhall
