@@ -1,1 +1,1 @@
-(./Type.dhall).Sql {=}
+(./Type.dhall).Sql ([] : List Text)

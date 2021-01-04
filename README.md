@@ -130,7 +130,7 @@ in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, post ]
         from: "zuul@example.com"
         subject: "[Zuul] Job failed in periodic pipeline: {change.project}"
         to: "root@localhost"
-      sqlreporter: {}
+      sqlreporter: []
     manager: independent
     name: periodic
     post-review: true
@@ -141,7 +141,7 @@ in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, post ]
     success:
       mqtt:
         topic: "zuul/{pipeline}/result/{project}/{branch}"
-      sqlreporter: {}
+      sqlreporter: []
     trigger:
       timer:
         - time: "0 0 * * *"
@@ -152,26 +152,26 @@ in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, post ]
         from: "zuul@example.com"
         subject: "[Zuul] Job failed in periodic pipeline: {change.project}"
         to: "root@localhost"
-      sqlreporter: {}
+      sqlreporter: []
     manager: independent
     name: periodic-hourly
     post-review: true
     precedence: low
     success:
-      sqlreporter: {}
+      sqlreporter: []
     trigger:
       timer:
         - time: "0 * * * *"
 - pipeline:
     description: This pipeline runs jobs that operate after each change is merged.
     failure:
-      sqlreporter: {}
+      sqlreporter: []
     manager: supercedent
     name: post
     post-review: true
     precedence: high
     success:
-      sqlreporter: {}
+      sqlreporter: []
     trigger:
       gerrit:
         - event: ref-updated
