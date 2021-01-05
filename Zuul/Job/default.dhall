@@ -19,5 +19,6 @@
 , run = None Text
 , secrets = None (List ./Secret/Type.dhall)
 , semaphore = None ./Semaphore/Type.dhall
+, timeout = None Natural
 , vars = None ../Vars/Type.dhall
 }

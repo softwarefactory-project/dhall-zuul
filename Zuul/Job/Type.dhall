@@ -11,6 +11,7 @@
 , post-run : Optional (List Text)
 , provides : Optional (List Text)
 , attempts : Optional Natural
+, timeout : Optional Natural
 , dependencies : Optional (List ./Dependency/union.dhall)
 , nodeset : Optional ../Nodeset/union.dhall
 , override-checkout : Optional Text
