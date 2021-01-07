@@ -114,7 +114,11 @@ let post
     : Zuul.Pipeline.Type
     = Zuul.Pipeline.post "gerrit" "sqlreporter"
 
-in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, post ]
+let promote
+    : Zuul.Pipeline.Type
+    = Zuul.Pipeline.promote "gerrit" "sqlreporter"
+
+in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, promote, post ]
 
 ```
 
@@ -162,6 +166,21 @@ in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, post ]
     trigger:
       timer:
         - time: "0 * * * *"
+- pipeline:
+    description: This pipeline runs jobs that operate after each change is merged.
+    failure:
+      gerrit: {}
+      sqlreporter: []
+    manager: supercedent
+    name: promote
+    post-review: true
+    precedence: high
+    success:
+      gerrit: {}
+      sqlreporter: []
+    trigger:
+      gerrit:
+        - event: change-merged
 - pipeline:
     description: This pipeline runs jobs that operate after each change is merged.
     failure:

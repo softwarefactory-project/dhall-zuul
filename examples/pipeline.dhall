@@ -50,4 +50,8 @@ let post
     : Zuul.Pipeline.Type
     = Zuul.Pipeline.post "gerrit" "sqlreporter"
 
-in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, post ]
+let promote
+    : Zuul.Pipeline.Type
+    = Zuul.Pipeline.promote "gerrit" "sqlreporter"
+
+in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, promote, post ]

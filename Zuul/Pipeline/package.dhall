@@ -11,6 +11,7 @@
 , normal = ./normal.dhall
 , periodic = ./periodic.dhall
 , post = ./post.dhall
+, promote = ./promote.dhall
 , serial = ./serial.dhall
 , supercedent = ./supercedent.dhall
 , wrap = ./wrap.dhall
