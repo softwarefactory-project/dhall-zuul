@@ -628,6 +628,12 @@ in  Zuul.Tenant.wrap [ tenant ]
 
 Frozen package are available in the tag commit.
 
+### 0.5.0
+
+- Add missing Jos's timeout param
+- Change Zuul.Pipeline sql reporter type
+- Add job's protected, final, provides attributes
+
 ### 0.4.0
 
 - Add Pipeline
