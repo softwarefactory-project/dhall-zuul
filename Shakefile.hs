@@ -62,4 +62,5 @@ main = shakeMain $ do
   "Zuul/Resource.dhall" %> dhallUnionAction ["*/wrapped.dhall"]
   ".zuul.yaml" %> dhallYaml "./examples/dhall-zuul-ci.dhall"
   dhallDocsRules "dhall-zuul"
+  dhallReleaseRules "./Zuul/package.dhall"
   cleanRules
