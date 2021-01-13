@@ -10,6 +10,7 @@
 , run : Optional Text
 , post-run : Optional (List Text)
 , provides : Optional (List Text)
+, requires : Optional (List Text)
 , attempts : Optional Natural
 , timeout : Optional Natural
 , dependencies : Optional (List ./Dependency/union.dhall)

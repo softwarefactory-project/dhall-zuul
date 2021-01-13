@@ -15,6 +15,7 @@
 , protected = None Bool
 , provides = None (List Text)
 , required-projects = None (List { name : Text })
+, requires = None (List Text)
 , roles = None (List { zuul : Text })
 , run = None Text
 , secrets = None (List ./Secret/Type.dhall)
