@@ -1,25 +1,42 @@
 { name : Optional Text
 , parent : Optional Text
-, abstract : Optional Bool
-, protected : Optional Bool
-, final : Optional Bool
-, ansible-version : Optional Text
-, branches : Optional (List Text)
 , description : Optional Text
-, pre-run : Optional (List Text)
-, run : Optional Text
-, post-run : Optional (List Text)
+, final : Optional Bool
+, protected : Optional Bool
+, abstract : Optional Bool
+, intermediate : Optional Bool
+, success-message : Optional Text
+, failure-message : Optional Text
+, success-url : Optional Text
+, failure-url : Optional Text
+, hold-following-changes : Optional Bool
+, voting : Optional Bool
+, semaphore : Optional ./Semaphore/Type.dhall
+, tags : Optional (List Text)
 , provides : Optional (List Text)
 , requires : Optional (List Text)
-, attempts : Optional Natural
-, timeout : Optional Natural
-, dependencies : Optional (List ./Dependency/union.dhall)
+, secrets : Optional (List ./Secret/Type.dhall)
 , nodeset : Optional ../Nodeset/union.dhall
 , override-checkout : Optional Text
-, vars : Optional ../Vars/Type.dhall
-, host-vars : Optional ../Vars/Type.dhall
-, secrets : Optional (List ./Secret/Type.dhall)
-, semaphore : Optional ./Semaphore/Type.dhall
+, timeout : Optional Natural
+, post-timeout : Optional Natural
+, attempts : Optional Natural
+, pre-run : Optional (List Text)
+, post-run : Optional (List Text)
+, cleanup-run : Optional (List Text)
+, run : Optional Text
+, ansible-version : Optional Text
 , roles : Optional (List { zuul : Text })
-, required-projects : Optional (List { name : Text })
+, required-projects : Optional (List ./RequiredProject/Type.dhall)
+, vars : Optional ../Vars/Type.dhall
+, extra-vars : Optional ../Vars/Type.dhall
+, host-vars : Optional ../Vars/Type.dhall
+, group-vars : Optional ../Vars/Type.dhall
+, dependencies : Optional (List ./Dependency/union.dhall)
+, allowed-projects : Optional (List Text)
+, post-review : Optional Bool
+, branches : Optional (List Text)
+, files : Optional (List Text)
+, irrelevant-files : Optional (List Text)
+, match-on-config-updates : Optional Bool
 }
