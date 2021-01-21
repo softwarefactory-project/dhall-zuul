@@ -31,8 +31,8 @@ let base =
 
 let --| A function to create simple zuul-jobs variant with `ansible-` prefix
     mkVariant =
-      \(nodeset : Text) ->
-      \(parent-name : Text) ->
+      λ(nodeset : Text) →
+      λ(parent-name : Text) →
         Zuul.Job::{
         , name = Some "ansible-${parent-name}"
         , parent = Some parent-name
@@ -67,9 +67,9 @@ let network-base =
 
 let --| A function to create a network job
     mkNetwork =
-      \(name : Text) ->
-      \(host-var-name : Text) ->
-      \(nodeset-suffix : Text) ->
+      λ(name : Text) →
+      λ(host-var-name : Text) →
+      λ(nodeset-suffix : Text) →
         let host-vars =
               Zuul.Vars.mapText
                 ( toMap

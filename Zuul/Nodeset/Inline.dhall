@@ -9,10 +9,10 @@ Construct a Nodeset.Union using an inlined Nodeset.
    }
    ```
 -}
-let Nodeset = { Type = ./Type.dhall, Union = ./union.dhall }
+let Nodeset = { InlineType = ./InlineType.dhall, Union = ./union.dhall }
 
 let Inline
-    : Nodeset.Type -> Nodeset.Union
+    : Nodeset.InlineType → Nodeset.Union
     = (./union.dhall).Inline
 
 in  Inline

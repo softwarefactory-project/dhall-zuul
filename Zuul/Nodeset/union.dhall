@@ -1,4 +1,4 @@
 {-|
 The two ways to reference a Nodeset
 -}
-< Name : Text | Inline : ./Type.dhall >
+< Name : Text | Inline : ./InlineType.dhall >
