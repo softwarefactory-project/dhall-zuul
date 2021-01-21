@@ -4,7 +4,7 @@ let nodeset-name = "my-nodeset"
 
 in    Zuul.Nodeset.wrap
         [ Zuul.Nodeset::{
-          , name = Some nodeset-name
+          , name = nodeset-name
           , nodes = [ { name = "container", label = "my-label" } ]
           }
         ]
@@ -16,7 +16,7 @@ in    Zuul.Nodeset.wrap
           }
         , Zuul.Job::{
           , name = Some "test-with-inlined-nodeset"
-          , nodeset = Zuul.Nodeset.mkSimpleInline "another-label"
+          , nodeset = Zuul.Nodeset.mkSimpleInline nodeset-name "another-label"
           }
         , Zuul.Job::{ name = Some "publish" }
         ]
