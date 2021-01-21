@@ -1,1 +1,1 @@
-{ name : Text, resources-first : Optional Bool}
+{ name : Text, resources-first : Optional Bool }
