@@ -1,1 +1,1 @@
-{ name : Optional Text, nodes : List ./NodeType.dhall }
+{ name : Text, nodes : List ./NodeType.dhall }
