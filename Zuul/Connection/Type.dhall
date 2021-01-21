@@ -1,3 +1,3 @@
-{ config-projects : Optional (List ../SourceProject/union.dhall)
-, untrusted-projects : Optional (List ../SourceProject/union.dhall)
+{ config-projects : Optional (List ../SourceProject/Union.dhall)
+, untrusted-projects : Optional (List ../SourceProject/Union.dhall)
 }

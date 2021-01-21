@@ -31,7 +31,7 @@
 , extra-vars : Optional ../Vars/Type.dhall
 , host-vars : Optional ../Vars/Type.dhall
 , group-vars : Optional ../Vars/Type.dhall
-, dependencies : Optional (List ./Dependency/union.dhall)
+, dependencies : Optional (List ./Dependency/Union.dhall)
 , allowed-projects : Optional (List Text)
 , post-review : Optional Bool
 , branches : Optional (List Text)

@@ -1,1 +1,1 @@
-List { mapKey : Text, mapValue : ./union.dhall }
+List { mapKey : Text, mapValue : ./Union.dhall }

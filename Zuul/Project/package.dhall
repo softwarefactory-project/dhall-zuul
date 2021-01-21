@@ -2,8 +2,8 @@
 , Pipeline = ./Pipeline.dhall
 , Pipelines = ./Pipelines.dhall
 , Type = ./Type.dhall
+, Union = ./Union.dhall
 , mkSimplePipeline = ./mkSimplePipeline.dhall
-, union = ./union.dhall
 , wrap = ./wrap.dhall
 , wrapped = ./wrapped.dhall
 }
