@@ -16,7 +16,7 @@
 , provides : Optional (List Text)
 , requires : Optional (List Text)
 , secrets : Optional (List ./Secret/Type.dhall)
-, nodeset : Optional ../Nodeset/union.dhall
+, nodeset : Optional ../Nodeset/Union.dhall
 , override-checkout : Optional Text
 , timeout : Optional Natural
 , post-timeout : Optional Natural

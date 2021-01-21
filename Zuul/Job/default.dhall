@@ -18,7 +18,7 @@
 , irrelevant-files = None (List Text)
 , match-on-config-updates = None Bool
 , name = None Text
-, nodeset = None ../Nodeset/union.dhall
+, nodeset = None ../Nodeset/Union.dhall
 , override-checkout = None Text
 , parent = None Text
 , post-review = None Bool

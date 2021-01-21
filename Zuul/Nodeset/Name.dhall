@@ -1,10 +1,10 @@
 {-|
 Construct a Nodeset.Union using a name
 -}
-let Nodeset = { Union = ./union.dhall }
+let Nodeset = { Union = ./Union.dhall }
 
 let Name
     : Text -> Nodeset.Union
-    = (./union.dhall).Name
+    = Nodeset.Union.Name
 
 in  Name
