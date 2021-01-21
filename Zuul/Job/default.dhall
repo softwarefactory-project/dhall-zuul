@@ -4,7 +4,7 @@
 , attempts = None Natural
 , branches = None (List Text)
 , cleanup-run = None (List Text)
-, dependencies = None (List ./Dependency/union.dhall)
+, dependencies = None (List ./Dependency/Union.dhall)
 , description = None Text
 , extra-vars = None ../Vars/Type.dhall
 , failure-message = None Text

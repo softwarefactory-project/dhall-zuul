@@ -1,3 +1,3 @@
-{ config-projects = None (List ../SourceProject/union.dhall)
-, untrusted-projects = None (List ../SourceProject/union.dhall)
+{ config-projects = None (List ../SourceProject/Union.dhall)
+, untrusted-projects = None (List ../SourceProject/Union.dhall)
 }
