@@ -21,15 +21,15 @@ in    Zuul.Nodeset.wrap
         ]
     # Zuul.Job.wrap
         [ Zuul.Job::{
-          , name = Some "test"
+          , name = "test"
           , nodeset = Some (Zuul.Nodeset.Name nodeset-name)
           , vars = Some (Zuul.Vars.mapBool (toMap { debug = True }))
           }
         , Zuul.Job::{
-          , name = Some "test-with-inlined-nodeset"
+          , name = "test-with-inlined-nodeset"
           , nodeset = Zuul.Nodeset.mkSimpleInline "another-label"
           }
-        , Zuul.Job::{ name = Some "publish" }
+        , Zuul.Job::{ name = "publish" }
         ]
 
 ```
@@ -205,7 +205,7 @@ in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, promote, post ]
 -- ./examples/generate-jobs.dhall
 let Zuul = ../package.dhall
 
-let Job = Zuul.Job::{ name = Some "bench-job" }
+let Job = Zuul.Job::{ name = "bench-job" }
 
 let Jobs =
       Zuul.Job.mapJob
@@ -264,9 +264,9 @@ let project =
         }
 
 in    Zuul.Job.wrap
-        [ Zuul.Job::{ name = Some "test" }
+        [ Zuul.Job::{ name = "test" }
         , Zuul.Job::{
-          , name = Some "publish"
+          , name = "publish"
           , dependencies = Some [ Zuul.Job.Dependency.Name "test" ]
           }
         ]
@@ -312,7 +312,7 @@ let Zuul = ../package.dhall
 
 let base =
       [ Zuul.Job::{
-        , name = Some "base"
+        , name = "base"
         , parent = Some "base-minimal"
         , abstract = Some True
         , ansible-version = Some "2.9"
@@ -321,7 +321,7 @@ let base =
         , pre-run = Some [ "playbooks/base/pre.yaml" ]
         }
       , Zuul.Job::{
-        , name = Some "github-workflows"
+        , name = "github-workflows"
         , description = Some
             "A job to validate no github workflow directory are found."
         , run = Some "playbooks/github-workflows/run.yaml"
@@ -334,7 +334,7 @@ let --| A function to create simple zuul-jobs variant with `ansible-` prefix
       \(nodeset : Text) ->
       \(parent-name : Text) ->
         Zuul.Job::{
-        , name = Some "ansible-${parent-name}"
+        , name = "ansible-${parent-name}"
         , parent = Some parent-name
         , nodeset = Some (Zuul.Nodeset.Name nodeset)
         }
@@ -360,7 +360,7 @@ let toxs =
 
 let network-base =
       Zuul.Job::{
-      , name = Some "ansible-network-appliance-base"
+      , name = "ansible-network-appliance-base"
       , pre-run = Some [ "playbooks/ansible-network-appliance-base/pre.yaml" ]
       , post-run = Some [ "playbooks/ansible-network-appliance-base/post.yaml" ]
       }
@@ -380,7 +380,7 @@ let --| A function to create a network job
                 )
 
         in  Zuul.Job::{
-            , name = Some "ansible-network-${name}-appliance"
+            , name = "ansible-network-${name}-appliance"
             , parent = Some (Zuul.Job.getName network-base)
             , pre-run = Some
               [ "playbooks/ansible/network-${name}-appliance/pre.yaml" ]

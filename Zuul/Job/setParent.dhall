@@ -9,7 +9,7 @@ let setParent
 
 let example0 =
         assert
-      :     setParent "base-test" Job::{ name = Some "job" }
-        ===  Job::{ name = Some "job", parent = Some "base-test" }
+      :     setParent "base-test" Job::{ name = "job" }
+        ===  Job::{ name = "job", parent = Some "base-test" }
 
 in  setParent

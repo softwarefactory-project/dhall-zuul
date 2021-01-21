@@ -1,10 +1,10 @@
 {-|
 Construct a Job.Union using a name
 -}
-let Job = { Union = ./union.dhall }
+let Job = { Union = ./Union.dhall }
 
 let Name
     : Text -> Job.Union
-    = (./union.dhall).Name
+    = Job.Union.Name
 
 in  Name

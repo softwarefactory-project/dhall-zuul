@@ -5,10 +5,8 @@ let Job = ./schema.dhall
 
 let getName
     : Job.Type -> Text
-    = \(job : Job.Type) -> (../../imports/Prelude.dhall).Text.default job.name
+    = \(job : Job.Type) -> job.name
 
-let example0 = assert : getName Job::{ name = Some "job" } === "job"
-
-let example1 = assert : getName Job::{=} === ""
+let example0 = assert : getName Job::{ name = "job" } === "job"
 
 in  getName

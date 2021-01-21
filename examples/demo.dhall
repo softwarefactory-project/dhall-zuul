@@ -10,13 +10,13 @@ in    Zuul.Nodeset.wrap
         ]
     # Zuul.Job.wrap
         [ Zuul.Job::{
-          , name = Some "test"
+          , name = "test"
           , nodeset = Some (Zuul.Nodeset.Name nodeset-name)
           , vars = Some (Zuul.Vars.mapBool (toMap { debug = True }))
           }
         , Zuul.Job::{
-          , name = Some "test-with-inlined-nodeset"
+          , name = "test-with-inlined-nodeset"
           , nodeset = Zuul.Nodeset.mkSimpleInline "another-label"
           }
-        , Zuul.Job::{ name = Some "publish" }
+        , Zuul.Job::{ name = "publish" }
         ]
