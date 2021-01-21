@@ -1,4 +1,5 @@
 { Inline = ./Inline.dhall
+, InlineType = ./InlineType.dhall
 , Name = ./Name.dhall
 , NodeType = ./NodeType.dhall
 , Type = ./Type.dhall
