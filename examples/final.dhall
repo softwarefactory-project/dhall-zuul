@@ -9,9 +9,9 @@ let project =
         }
 
 in    Zuul.Job.wrap
-        [ Zuul.Job::{ name = Some "test" }
+        [ Zuul.Job::{ name = "test" }
         , Zuul.Job::{
-          , name = Some "publish"
+          , name = "publish"
           , dependencies = Some [ Zuul.Job.Dependency.Name "test" ]
           }
         ]

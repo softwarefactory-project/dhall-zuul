@@ -17,6 +17,6 @@ let WithOptions
     = \(job : Job.Type) ->
       \(job-name : Text) ->
         (./union.dhall).Inline
-          [ { mapKey = job-name, mapValue = job // { name = None Text } } ]
+          [ { mapKey = job-name, mapValue = job.(./InlineType.dhall) } ]
 
 in  WithOptions

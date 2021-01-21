@@ -12,13 +12,7 @@ let mkInline
               ../Job/union.dhall
               ( \(job : Job.Type) ->
                   ../Job/Inline.dhall
-                    [ { mapKey =
-                          merge
-                            { None = "", Some = \(name : Text) -> name }
-                            job.name
-                      , mapValue = job // { name = None Text }
-                      }
-                    ]
+                    [ { mapKey = job.name, mapValue = job.(Job.InlineType) } ]
               )
               jobs
         }

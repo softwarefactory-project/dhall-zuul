@@ -8,12 +8,12 @@ Construct a Job.Union using an inlined job.
    ```
 
 -}
-let Job = { Type = ./Type.dhall, Union = ./union.dhall }
+let Job = { InlineType = ./InlineType.dhall, Union = ./union.dhall }
 
 let Map = (../../imports/Prelude.dhall).Map.Type
 
 let Inline
-    : Map Text Job.Type -> Job.Union
+    : Map Text Job.InlineType -> Job.Union
     = (./union.dhall).Inline
 
 in  Inline

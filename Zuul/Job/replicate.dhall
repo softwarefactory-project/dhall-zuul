@@ -11,18 +11,15 @@ let replicate
           count
           Job.Type
           ( \(idx : Natural) ->
-                  job
-              //  { name = Some
-                      (./getName.dhall job ++ "-" ++ Natural/show (idx + 1))
-                  }
+              job // { name = job.name ++ "-" ++ Natural/show (idx + 1) }
           )
 
 let example0 =
         assert
-      :     replicate 3 Job::{ name = Some "job" }
-        ===  [ Job::{ name = Some "job-1" }
-             , Job::{ name = Some "job-2" }
-             , Job::{ name = Some "job-3" }
+      :     replicate 3 Job::{ name = "job" }
+        ===  [ Job::{ name = "job-1" }
+             , Job::{ name = "job-2" }
+             , Job::{ name = "job-3" }
              ]
 
 in  replicate

@@ -6,12 +6,12 @@ let getUnionName
         merge
           { Name = \(name : Text) -> name
           , Inline =
-              \(map : Prelude.Map.Type Text ./Type.dhall) ->
+              \(map : Prelude.Map.Type Text ./InlineType.dhall) ->
                 merge
                   { None = "", Some = \(name : Text) -> name }
                   ( Prelude.List.head
                       Text
-                      (Prelude.Map.keys Text ./Type.dhall map)
+                      (Prelude.Map.keys Text ./InlineType.dhall map)
                   )
           }
           job

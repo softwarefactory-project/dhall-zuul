@@ -1,4 +1,5 @@
 { Inline = ./Inline.dhall
+, InlineType = ./InlineType.dhall
 , Name = ./Name.dhall
 , Type = ./Type.dhall
 , WithOptions = ./WithOptions.dhall
