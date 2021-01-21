@@ -4,8 +4,8 @@ Create a nodeset with a single node named after the label
 let Nodeset = ./schema.dhall
 
 let mkSimple
-    : Text -> Nodeset.Type
+    : Text -> Nodeset.InlineType
     = \(label-name : Text) ->
-        Nodeset::{ nodes = [ { name = label-name, label = label-name } ] }
+        { nodes = [ { name = label-name, label = label-name } ] }
 
 in  mkSimple

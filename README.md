@@ -15,7 +15,7 @@ let nodeset-name = "my-nodeset"
 
 in    Zuul.Nodeset.wrap
         [ Zuul.Nodeset::{
-          , name = Some nodeset-name
+          , name = nodeset-name
           , nodes = [ { name = "container", label = "my-label" } ]
           }
         ]
