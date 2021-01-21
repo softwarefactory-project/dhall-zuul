@@ -1,4 +1,4 @@
-let Nodeset = { Union = ./union.dhall }
+let Nodeset = { Union = ./Union.dhall }
 
 let mkSimpleInline
     : Text -> Optional Nodeset.Union

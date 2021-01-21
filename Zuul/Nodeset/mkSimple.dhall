@@ -5,7 +5,6 @@ let Nodeset = ./schema.dhall
 
 let mkSimple
     : Text -> Nodeset.Type
-    = \(label-name : Text) ->
-        Nodeset::{ nodes = [ { name = label-name, label = label-name } ] }
+    = \(name : Text) -> { name, nodes = [ { name, label = name } ] }
 
 in  mkSimple

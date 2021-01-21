@@ -1,1 +1,1 @@
-./default.dhall // { nodes = [] : List ./NodeType.dhall }
+./default.dhall // { name = "localhost", nodes = [] : List ./NodeType.dhall }
