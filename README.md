@@ -647,6 +647,14 @@ in  Zuul.Tenant.wrap [ tenant ]
 
 Frozen package are available in the tag commit.
 
+### 0.5.0
+
+- Add Semaphore
+- Add Pipeline templates
+- Add Job missing attributes
+- Changed Job and Nodeset to require a name
+- Changed Union type to be capitalized
+
 ### 0.4.0
 
 - Add Pipeline
