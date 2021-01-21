@@ -1,1 +1,1 @@
-{ jobs : List ../Job/union.dhall, queue : Optional Text, debug : Optional Bool }
+{ jobs : List ../Job/Union.dhall, queue : Optional Text, debug : Optional Bool }

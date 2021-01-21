@@ -15,9 +15,9 @@ let example0 =
         assert
       :     mapJob
               (Job.setParent "base-test")
-              [ Job::{ name = Some "test" }, Job::{ name = Some "build" } ]
-        ===  [ Job::{ name = Some "test", parent = Some "base-test" }
-             , Job::{ name = Some "build", parent = Some "base-test" }
+              [ Job::{ name = "test" }, Job::{ name = "build" } ]
+        ===  [ Job::{ name = "test", parent = Some "base-test" }
+             , Job::{ name = "build", parent = Some "base-test" }
              ]
 
 in  mapJob

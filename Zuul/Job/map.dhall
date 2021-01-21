@@ -16,7 +16,7 @@ let example0 =
       :     map
               Text
               Job.getName
-              [ Job::{ name = Some "test" }, Job::{ name = Some "build" } ]
+              [ Job::{ name = "test" }, Job::{ name = "build" } ]
         ===  [ "test", "build" ]
 
 in  map

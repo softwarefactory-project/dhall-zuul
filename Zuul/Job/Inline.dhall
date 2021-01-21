@@ -4,16 +4,16 @@ Construct a Job.Union using an inlined job.
    For example, to add a job to a pipeline configuration:
 
    ```
-   [ Zuul.Job.Inline (toMap { job-name = Zuul.Job::{ attempts = Some 1 } }) ]
+   [ Zuul.Job.Inline Zuul.Job::{ name = "job-name", attempts = Some 1 } ]
    ```
 
 -}
-let Job = { Type = ./Type.dhall, Union = ./union.dhall }
-
-let Map = (../../imports/Prelude.dhall).Map.Type
+let Job = { Type = ./Type.dhall, Union = ./Union.dhall }
 
 let Inline
-    : Map Text Job.Type -> Job.Union
-    = (./union.dhall).Inline
+    : Job.Type -> Job.Union
+    = \(job : Job.Type) ->
+        Job.Union.Inline
+          [ { mapKey = job.name, mapValue = job.(./InlineType.dhall) } ]
 
 in  Inline

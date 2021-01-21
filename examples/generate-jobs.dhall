@@ -1,6 +1,6 @@
 let Zuul = ../package.dhall
 
-let Job = Zuul.Job::{ name = Some "bench-job" }
+let Job = Zuul.Job::{ name = "bench-job" }
 
 let Jobs =
       Zuul.Job.mapJob
