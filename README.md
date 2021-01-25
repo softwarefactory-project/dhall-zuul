@@ -255,9 +255,18 @@ defined as a Map that can be used like so:
 -- ./examples/final.dhall
 let Zuul = ../package.dhall
 
+let gateTemplate =
+      toMap
+        { name = Zuul.ProjectTemplate.Name "gate-jobs"
+        , gate =
+            Zuul.ProjectTemplate.Pipeline
+              (Zuul.ProjectPipeline.mkSimple [ "test", "publish" ])
+        }
+
 let project =
       toMap
         { name = Zuul.Project.Name "dhall-zuul"
+        , templates = Zuul.Project.Templates [ "gate-jobs" ]
         , check =
             Zuul.Project.Pipeline
               (Zuul.ProjectPipeline.mkSimple [ "test", "publish" ])
@@ -270,6 +279,7 @@ in    Zuul.Job.wrap
           , dependencies = Some [ Zuul.Job.Dependency.Name "test" ]
           }
         ]
+    # Zuul.ProjectTemplate.wrap [ gateTemplate ]
     # Zuul.Project.wrap [ project ]
 
 ```
@@ -283,12 +293,20 @@ in    Zuul.Job.wrap
     dependencies:
       - test
     name: publish
+- project-template:
+    gate:
+      jobs:
+        - test
+        - publish
+    name: gate-jobs
 - project:
     check:
       jobs:
         - test
         - publish
     name: dhall-zuul
+    templates:
+      - gate-jobs
 
 ```
 
