@@ -1,1 +1,4 @@
-< Name : Text | Pipeline : ../ProjectPipeline/Type.dhall >
+< Name : Text
+| Templates : List Text
+| Pipeline : ../ProjectPipeline/Type.dhall
+>

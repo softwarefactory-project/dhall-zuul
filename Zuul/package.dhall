@@ -6,6 +6,7 @@
 , Pipeline = ./Pipeline/package.dhall
 , Project = ./Project/package.dhall
 , ProjectPipeline = ./ProjectPipeline/package.dhall
+, ProjectTemplate = ./ProjectTemplate/package.dhall
 , Secret = ./Secret/package.dhall
 , Semaphore = ./Semaphore/package.dhall
 , SourceProject = ./SourceProject/package.dhall

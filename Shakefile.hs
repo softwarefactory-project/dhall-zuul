@@ -8,6 +8,7 @@ import Development.Shake
 import Development.Shake.FilePath
 import ShakeFactory
 import ShakeFactory.Dhall
+import Text.Casing (kebab)
 
 getName :: FilePath -> String
 getName fp = reverse $ drop 1 $ reverse $ head $ drop 1 $ splitPath fp
@@ -22,13 +23,12 @@ createWrapped fp = writeFile' fp content
     content =
       createContent
         ("A wrapped version of the Zuul." <> name <> ".Type")
-        ["{ " <> map toLower name <> " : ./Type.dhall }"]
+        ["{ " <> kebab name <> " : ./Type.dhall }"]
 
 createWrap :: FilePath -> Action ()
 createWrap fp = writeFile' fp content
   where
     name = getName fp
-    lowerName = map toLower name
     content =
       createContent
         ("A function to wrap a list of Zuul." <> name <> ".Type")
@@ -41,7 +41,7 @@ createWrap fp = writeFile' fp content
           "    = ../../imports/map.dhall",
           "        " <> name <> ".Type",
           "        typesUnion",
-          "        (\\(" <> lowerName <> " : " <> name <> ".Type) -> typesUnion." <> name <> " { " <> lowerName <> " })",
+          "        (\\(" <> kebab name <> " : " <> name <> ".Type) -> typesUnion." <> name <> " { " <> kebab name <> " })",
           "",
           "in  wrap"
         ]
@@ -49,7 +49,7 @@ createWrap fp = writeFile' fp content
 createWant :: FilePath -> [FilePath]
 createWant fn = map (\obj -> "Zuul/" <> obj <> "/" <> fn) confObjects
   where
-    confObjects = ["Job", "Nodeset", "Project", "Tenant", "Secret", "Semaphore", "Pipeline"]
+    confObjects = ["Job", "Nodeset", "Project", "Tenant", "Secret", "Semaphore", "Pipeline", "ProjectTemplate"]
 
 main = shakeMain $ do
   want $ ["README.md", "package.dhall", ".zuul.yaml"] <> createWant "wrapped.dhall" <> createWant "wrap.dhall"
