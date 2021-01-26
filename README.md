@@ -667,7 +667,7 @@ Frozen package are available in the tag commit.
 
 ### 0.5.0
 
-- Add Semaphore
+- Add Project templates
 - Add Pipeline templates
 - Add Job missing attributes
 - Changed Job and Nodeset to require a name
