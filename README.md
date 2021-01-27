@@ -102,6 +102,25 @@ let periodic =
           )
       }
 
+let gate =
+      Zuul.Pipeline::{
+      , name = "gate"
+      , manager = Zuul.Pipeline.Manager.dependent
+      , require = Some
+          ( toMap
+              { `opendev.org` =
+                  Zuul.Pipeline.Require.gerrit
+                    Zuul.Pipeline.Require.Gerrit::{
+                    , open = Some True
+                    , approval = Some
+                      [ Zuul.Pipeline.Require.Gerrit.Approval.username "zuul"
+                      , Zuul.Pipeline.Require.Gerrit.Approval.vote "Verified" +1
+                      ]
+                    }
+              }
+          )
+      }
+
 let --| Using periodic helper function:
     hourly-periodic
     : Zuul.Pipeline.Type
@@ -118,13 +137,22 @@ let promote
     : Zuul.Pipeline.Type
     = Zuul.Pipeline.promote "gerrit" "sqlreporter"
 
-in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, promote, post ]
+in  Zuul.Pipeline.wrap [ gate, periodic, hourly-periodic, promote, post ]
 
 ```
 
 ```yaml
 # dhall-to-yaml --file examples/pipeline.dhall
 
+- pipeline:
+    manager: dependent
+    name: gate
+    require:
+      opendev.org:
+        approval:
+          Verified: 1
+          username: zuul
+        open: true
 - pipeline:
     description: Jobs in this queue are triggered daily
     failure:
@@ -197,7 +225,6 @@ in  Zuul.Pipeline.wrap [ periodic, hourly-periodic, promote, post ]
           ref: "^refs/heads/.*$"
 
 ```
-
 
 ## Generate job
 

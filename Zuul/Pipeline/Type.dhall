@@ -12,8 +12,8 @@
 , dequeue-message : Optional Text
 , footer-message : Optional Text
 , trigger : Optional ./Trigger/map.dhall
-, require : Optional ./Requirement.dhall
-, reject : Optional ./Requirement.dhall
+, require : Optional ./Require/map.dhall
+, reject : Optional ./Reject/map.dhall
 , supercedes : Optional Text
 , dequeue-on-new-patchset : Optional Bool
 , ignore-dependencies : Optional Bool

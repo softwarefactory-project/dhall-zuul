@@ -16,8 +16,8 @@
 , no-jobs-message = None Text
 , post-review = None Bool
 , precedence = None ./Precedence.dhall
-, reject = None ./Requirement.dhall
-, require = None ./Requirement.dhall
+, reject = None ./Reject/map.dhall
+, require = None ./Require/map.dhall
 , start = None ./Reporter/map.dhall
 , start-message = None Text
 , success = None ./Reporter/map.dhall

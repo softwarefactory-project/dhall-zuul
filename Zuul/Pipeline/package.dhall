@@ -1,6 +1,5 @@
 { Manager = ./Manager.dhall
 , Precedence = ./Precedence.dhall
-, Requirement = ./Requirement.dhall
 , Type = ./Type.dhall
 , WindowDecreaseType = ./WindowDecreaseType.dhall
 , default = ./default.dhall
@@ -17,5 +16,6 @@
 , wrap = ./wrap.dhall
 , wrapped = ./wrapped.dhall
 , Reporter = ./Reporter/package.dhall
+, Require = ./Require/package.dhall
 , Trigger = ./Trigger/package.dhall
 }
