@@ -1,7 +1,7 @@
-{ username : Optional Text
-, email : Optional Text
-, older-than : Optional Text
+{ email : Optional Text
 , newer-than : Optional Text
+, older-than : Optional Text
+, permission : Optional ./Permission.dhall
 , type : Optional Text
-, permission : ./Permission.dhall
+, username : Optional Text
 }

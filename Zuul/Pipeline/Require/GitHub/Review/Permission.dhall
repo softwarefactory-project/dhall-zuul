@@ -1,1 +1,1 @@
-< read | write | admin >
+< admin | read | write >

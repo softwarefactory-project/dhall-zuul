@@ -1,1 +1,4 @@
-{ Type = ./Type.dhall, default = ./default.dhall }
+{ Type = ./Type.dhall
+, default = ./default.dhall
+, Review = ./Review/package.dhall
+}

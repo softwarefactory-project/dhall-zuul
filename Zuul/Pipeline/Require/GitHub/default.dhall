@@ -1,7 +1,7 @@
 { current-patchset = None Bool
-, label = None Text
+, label = None (List Text)
 , merged = None Bool
 , open = None Bool
 , review = None (List ./Review/Type.dhall)
-, status = None Text
+, status = None (List Text)
 }

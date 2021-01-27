@@ -8,4 +8,7 @@
 , smtp = ./smtp.dhall
 , sql = ./sql.dhall
 , Gerrit = ./Gerrit/package.dhall
+, GitHub = ./GitHub/package.dhall
+, Github = ./Github/package.dhall
+, Pagure = ./Pagure/package.dhall
 }

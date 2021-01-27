@@ -1,6 +1,6 @@
-{ score : Optional Natural
-, status : Optional ./Status.dhall
-, merged : Optional Bool
+{ merged : Optional Bool
 , open : Optional Bool
+, score : Optional Integer
+, status : Optional Text
 , tags : Optional (List Text)
 }

@@ -1,0 +1,11 @@
+{ action = None (List Text)
+, branch = None (List Text)
+, check = None (List Text)
+, comment = None (List Text)
+, label = None (List Text)
+, ref = None (List Text)
+, require-status = None (List Text)
+, state = None (List Text)
+, status = None (List Text)
+, unlabel = None (List Text)
+}
