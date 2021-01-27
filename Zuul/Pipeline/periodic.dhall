@@ -9,7 +9,7 @@ let Pipeline =
       }
 
 in  \(frequency : Pipeline.Trigger.Timer.Frequency.Type) ->
-    \(smtp-config : Pipeline.Reporter.Smtp) ->
+    \(smtp-config : Pipeline.Reporter.Smtp.Type) ->
     \(sql-name : Text) ->
       Pipeline::{
       , name = "periodic-${Pipeline.Trigger.Timer.Frequency.show frequency}"
