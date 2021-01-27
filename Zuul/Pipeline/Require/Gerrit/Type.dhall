@@ -1,5 +1,5 @@
-{ approval : Optional ./Approval/Type.dhall
-, open : Optional Bool
+{ approval : Optional (List ./Approval/Type.dhall)
 , current-patchset : Optional Bool
-, status : Optional Text
+, open : Optional Bool
+, status : Optional (List Text)
 }

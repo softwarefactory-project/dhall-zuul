@@ -1,1 +1,1 @@
-List { mapKey : Text, mapValue : ./Value.dhall }
+{ mapKey : Text, mapValue : ./Value.dhall }

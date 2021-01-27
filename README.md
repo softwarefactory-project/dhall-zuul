@@ -208,7 +208,8 @@ in  Zuul.Pipeline.wrap [ gate, periodic, hourly-periodic, promote, post ]
       sqlreporter: []
     trigger:
       gerrit:
-        - event: change-merged
+        - event:
+            - change-merged
 - pipeline:
     description: This pipeline runs jobs that operate after each change is merged.
     failure:
@@ -221,8 +222,10 @@ in  Zuul.Pipeline.wrap [ gate, periodic, hourly-periodic, promote, post ]
       sqlreporter: []
     trigger:
       gerrit:
-        - event: ref-updated
-          ref: "^refs/heads/.*$"
+        - event:
+            - ref-updated
+          ref:
+            - "^refs/heads/.*$"
 
 ```
 

@@ -1,5 +1,5 @@
-{ approval = None ./Approval/Type.dhall
+{ approval = None (List ./Approval/Type.dhall)
 , current-patchset = None Bool
 , open = None Bool
-, status = None Text
+, status = None (List Text)
 }

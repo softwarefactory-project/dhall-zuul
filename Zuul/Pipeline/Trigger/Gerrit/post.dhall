@@ -1,5 +1,10 @@
 --| The typical post trigger for gerrit
-let Gerrit = { Type = ./Type.dhall, default = ./default.dhall }
+let Gerrit =
+      { Type = ./Type.dhall, default = ./default.dhall, Event = ./Event.dhall }
 
 in  ../gerrit.dhall
-      [ Gerrit::{ event = "ref-updated", ref = Some "^refs/heads/.*\$" } ]
+      [ Gerrit::{
+        , event = [ Gerrit.Event.ref-updated ]
+        , ref = Some [ "^refs/heads/.*\$" ]
+        }
+      ]
