@@ -67,12 +67,15 @@ let Zuul = ../package.dhall
 let mqttReporter =
       \(stage : Text) ->
         Zuul.Pipeline.Reporter.mqtt
-          { topic = "zuul/{pipeline}/${stage}/{project}/{branch}" }
+          Zuul.Pipeline.Reporter.Mqtt::{
+          , topic = "zuul/{pipeline}/${stage}/{project}/{branch}"
+          }
 
 let smtp-config =
-      { from = "zuul@example.com"
-      , to = "root@localhost"
-      , subject = "[Zuul] Job failed in periodic pipeline: {change.project}"
+      { from = Some "zuul@example.com"
+      , to = Some "root@localhost"
+      , subject = Some
+          "[Zuul] Job failed in periodic pipeline: {change.project}"
       }
 
 let periodic =
