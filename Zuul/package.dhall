@@ -10,6 +10,7 @@
 , Secret = ./Secret/package.dhall
 , Semaphore = ./Semaphore/package.dhall
 , SourceProject = ./SourceProject/package.dhall
+, Task = ./Task/package.dhall
 , Tenant = ./Tenant/package.dhall
 , TenantOptions = ./TenantOptions/package.dhall
 , Vars = ./Vars/package.dhall

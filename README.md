@@ -705,6 +705,7 @@ Frozen package are available in the tag commit.
 - Add Job missing attributes
 - Changed Job and Nodeset to require a name
 - Changed Union type to be capitalized
+- Add Ansible modules
 
 ### 0.4.0
 
