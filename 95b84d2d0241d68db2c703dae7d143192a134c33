@@ -1,0 +1,8 @@
+Code-Review+2: Nicolas HICHER <nhicher@redhat.com>
+Workflow+1: Nicolas HICHER <nhicher@redhat.com>
+Verified+2: Zuul CI <zuul@softwarefactory-project.io>
+Submitted-by: Zuul CI <zuul@softwarefactory-project.io>
+Submitted-at: Wed, 27 Jan 2021 21:42:08 +0000
+Reviewed-on: https://softwarefactory-project.io/r/20765
+Project: software-factory/dhall-zuul
+Branch: refs/heads/master
