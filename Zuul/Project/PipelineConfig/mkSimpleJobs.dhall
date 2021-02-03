@@ -3,7 +3,7 @@ Create a project pipeline from a list of jobs
 -}
 let ProjectPipeline = { Type = ./Type.dhall, default = ./default.dhall }
 
-let Job = ../Job/package.dhall
+let Job = ../../Job/package.dhall
 
 let mkSimpleJobs
     : forall (jobs : List Job.Type) -> ProjectPipeline.Type

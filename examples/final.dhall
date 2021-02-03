@@ -5,7 +5,7 @@ let gateTemplate =
         { name = Zuul.ProjectTemplate.Name "gate-jobs"
         , gate =
             Zuul.ProjectTemplate.Pipeline
-              (Zuul.ProjectPipeline.mkSimple [ "test", "publish" ])
+              (Zuul.Project.PipelineConfig.mkSimple [ "test", "publish" ])
         }
 
 let project =
@@ -14,7 +14,7 @@ let project =
         , templates = Zuul.Project.Templates [ "gate-jobs" ]
         , check =
             Zuul.Project.Pipeline
-              (Zuul.ProjectPipeline.mkSimple [ "test", "publish" ])
+              (Zuul.Project.PipelineConfig.mkSimple [ "test", "publish" ])
         }
 
 in    Zuul.Job.wrap

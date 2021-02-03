@@ -1,1 +1,1 @@
-< Name : Text | Pipeline : ../ProjectPipeline/Type.dhall >
+< Name : Text | Pipeline : ../Project/PipelineConfig/Type.dhall >

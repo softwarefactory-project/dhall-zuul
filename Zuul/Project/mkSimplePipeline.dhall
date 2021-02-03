@@ -6,6 +6,6 @@ let Project = { Union = ./Union.dhall }
 let mkSimplePipeline
     : forall (job-names : List Text) -> Project.Union
     = \(job-names : List Text) ->
-        ./Pipeline.dhall (../ProjectPipeline/mkSimple.dhall job-names)
+        ./Pipeline.dhall (./PipelineConfig/mkSimple.dhall job-names)
 
 in  mkSimplePipeline
