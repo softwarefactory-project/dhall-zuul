@@ -1,7 +1,7 @@
 {-|
 Create a project pipeline from a list of jobs
 -}
-let ProjectPipeline = ./schema.dhall
+let ProjectPipeline = { Type = ./Type.dhall, default = ./default.dhall }
 
 let Job = ../Job/package.dhall
 

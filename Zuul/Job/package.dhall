@@ -9,7 +9,6 @@
 , map = ./map.dhall
 , mapJob = ./mapJob.dhall
 , replicate = ./replicate.dhall
-, schema = ./schema.dhall
 , setParent = ./setParent.dhall
 , wrap = ./wrap.dhall
 , wrapped = ./wrapped.dhall

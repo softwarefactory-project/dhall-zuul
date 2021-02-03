@@ -8,7 +8,6 @@
 , empty = ./empty.dhall
 , mkSimple = ./mkSimple.dhall
 , mkSimpleInline = ./mkSimpleInline.dhall
-, schema = ./schema.dhall
 , wrap = ./wrap.dhall
 , wrapped = ./wrapped.dhall
 }

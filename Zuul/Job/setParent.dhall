@@ -1,7 +1,7 @@
 {-|
 Set the parent of job
 -}
-let Job = ./schema.dhall
+let Job = { Type = ./Type.dhall, default = ./default.dhall }
 
 let setParent
     : Text -> Job.Type -> Job.Type

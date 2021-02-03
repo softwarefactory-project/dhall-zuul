@@ -1,6 +1,6 @@
 let Job = ../Job/package.dhall
 
-let ProjectPipeline = ./schema.dhall
+let ProjectPipeline = { Type = ./Type.dhall, default = ./default.dhall }
 
 let mkSimple
     : forall (job-names : List Text) -> ProjectPipeline.Type

@@ -1,7 +1,7 @@
 {-|
 Build a list of job by adding a version number to the job name
 -}
-let Job = ./schema.dhall
+let Job = { Type = ./Type.dhall, default = ./default.dhall }
 
 let replicate
     : Natural -> Job.Type -> List Job.Type

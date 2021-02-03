@@ -1,7 +1,7 @@
 {-|
 Return the name of a job, defaulting `None` to `""`
 -}
-let Job = ./schema.dhall
+let Job = { Type = ./Type.dhall, default = ./default.dhall }
 
 let getName
     : Job.Type -> Text
