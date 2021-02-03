@@ -1,1 +1,0 @@
-< hourly | daily | weekly | monthly >

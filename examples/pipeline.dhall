@@ -60,20 +60,4 @@ let gate =
           )
       }
 
-let --| Using periodic helper function:
-    hourly-periodic
-    : Zuul.Pipeline.Type
-    = Zuul.Pipeline.periodic
-        Zuul.Pipeline.Trigger.Timer.Frequency.hourly
-        smtp-config
-        "sqlreporter"
-
-let post
-    : Zuul.Pipeline.Type
-    = Zuul.Pipeline.post "gerrit" "sqlreporter"
-
-let promote
-    : Zuul.Pipeline.Type
-    = Zuul.Pipeline.promote "gerrit" "sqlreporter"
-
-in  Zuul.Pipeline.wrap [ gate, periodic, hourly-periodic, promote, post ]
+in  Zuul.Pipeline.wrap [ gate, periodic ]

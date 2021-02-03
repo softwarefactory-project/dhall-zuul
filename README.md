@@ -124,23 +124,7 @@ let gate =
           )
       }
 
-let --| Using periodic helper function:
-    hourly-periodic
-    : Zuul.Pipeline.Type
-    = Zuul.Pipeline.periodic
-        Zuul.Pipeline.Trigger.Timer.Frequency.hourly
-        smtp-config
-        "sqlreporter"
-
-let post
-    : Zuul.Pipeline.Type
-    = Zuul.Pipeline.post "gerrit" "sqlreporter"
-
-let promote
-    : Zuul.Pipeline.Type
-    = Zuul.Pipeline.promote "gerrit" "sqlreporter"
-
-in  Zuul.Pipeline.wrap [ gate, periodic, hourly-periodic, promote, post ]
+in  Zuul.Pipeline.wrap [ gate, periodic ]
 
 ```
 
@@ -180,55 +164,6 @@ in  Zuul.Pipeline.wrap [ gate, periodic, hourly-periodic, promote, post ]
     trigger:
       timer:
         - time: "0 0 * * *"
-- pipeline:
-    description: Jobs in this queue are triggered hourly
-    failure:
-      smtp:
-        from: "zuul@example.com"
-        subject: "[Zuul] Job failed in periodic pipeline: {change.project}"
-        to: "root@localhost"
-      sqlreporter: []
-    manager: independent
-    name: periodic-hourly
-    post-review: true
-    precedence: low
-    success:
-      sqlreporter: []
-    trigger:
-      timer:
-        - time: "0 * * * *"
-- pipeline:
-    description: This pipeline runs jobs that operate after each change is merged.
-    failure:
-      gerrit: {}
-      sqlreporter: []
-    manager: supercedent
-    name: promote
-    post-review: true
-    precedence: high
-    success:
-      gerrit: {}
-      sqlreporter: []
-    trigger:
-      gerrit:
-        - event:
-            - change-merged
-- pipeline:
-    description: This pipeline runs jobs that operate after each change is merged.
-    failure:
-      sqlreporter: []
-    manager: supercedent
-    name: post
-    post-review: true
-    precedence: high
-    success:
-      sqlreporter: []
-    trigger:
-      gerrit:
-        - event:
-            - ref-updated
-          ref:
-            - "^refs/heads/.*$"
 
 ```
 
@@ -701,8 +636,8 @@ Frozen package are available in the tag commit.
 ### 0.5.0
 
 - Add Semaphore
-- Add Pipeline templates
 - Add Job missing attributes
+- App Pipeline requires, triggers and reporters
 - Changed Job and Nodeset to require a name
 - Changed Union type to be capitalized
 - Add Ansible modules
