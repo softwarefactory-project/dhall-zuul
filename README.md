@@ -573,29 +573,27 @@ in  Zuul.Job.wrap (base # toxs # networks)
 -- ./examples/tenant-config.dhall
 let Zuul = ../package.dhall
 
+let Project = Zuul.Tenant.Source.Project
+
 let tenant =
       Zuul.Tenant::{
       , name = "ansible"
       , max-nodes-per-job = Some 42
       , source = toMap
-          { gerrit = Zuul.Connection::{
+          { gerrit = Zuul.Tenant.Source::{
             , config-projects = Some
-              [ Zuul.SourceProject.Name "common-config"
-              , Zuul.SourceProject.WithOptions
-                  Zuul.SourceProject::{
-                  , include = Some [ Zuul.ConfigurationItems.job ]
-                  }
+              [ Project.Name "common-config"
+              , Project.WithOptions
+                  Project::{ include = Some [ Project.ConfigurationItems.job ] }
                   "shared-jobs"
               ]
             , untrusted-projects = Some
-              [ Zuul.SourceProject.WithOptions
-                  Zuul.SourceProject::{ shadow = Some [ "comon-config" ] }
+              [ Project.WithOptions
+                  Project::{ shadow = Some [ "comon-config" ] }
                   "zuul/zuul-jobs"
-              , Zuul.SourceProject.Name "project1"
-              , Zuul.SourceProject.WithOptions
-                  Zuul.SourceProject::{
-                  , exclude-unprotected-branches = Some True
-                  }
+              , Project.Name "project1"
+              , Project.WithOptions
+                  Project::{ exclude-unprotected-branches = Some True }
                   "project2"
               ]
             }
@@ -641,6 +639,7 @@ Frozen package are available in the tag commit.
 - Changed Job and Nodeset to require a name
 - Changed Union type to be capitalized
 - Add Ansible modules
+- Move SourceProject and TenantOptions to the Tenant package
 
 ### 0.4.0
 
