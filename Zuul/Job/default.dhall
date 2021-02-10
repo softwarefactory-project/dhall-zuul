@@ -31,7 +31,7 @@
 , requires = None (List Text)
 , roles = None (List { zuul : Text })
 , run = None Text
-, secrets = None (List ./Secret/Type.dhall)
+, secrets = None (List ./Secret/Union.dhall)
 , semaphore = None ./Semaphore/Type.dhall
 , success-message = None Text
 , success-url = None Text
