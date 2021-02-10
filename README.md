@@ -631,6 +631,10 @@ in  Zuul.Tenant.wrap [ tenant ]
 
 Frozen package are available in the tag commit.
 
+### 0.6.0
+
+- Update Job.Secret to support inline name
+
 ### 0.5.0
 
 - Add Semaphore
